@@ -266,11 +266,33 @@
   .section-head p{ color:var(--ink-2); font-size:16px; max-width:480px; }
   .divider{ height:1px; background:var(--hairline); border:0; margin:0; }
 
+  /* ---------------- duotone photography ---------------- */
+  /* Every photo on the site is pushed toward the brand's own palette —
+     charcoal + steel blue — so imagery reads as part of the NOIA system,
+     not stock photos dropped onto a template. */
+  .photo{ position:relative; overflow:hidden; background:var(--bg-2); }
+  .photo img{
+    width:100%; height:100%; object-fit:cover; display:block;
+    filter:grayscale(1) contrast(1.08) brightness(0.85);
+    transform:scale(1.01);
+  }
+  .photo::after{
+    content:""; position:absolute; inset:0;
+    background:linear-gradient(160deg, rgba(62,92,121,0.5), rgba(13,14,16,0.78) 78%);
+    mix-blend-mode:color;
+  }
+  .photo::before{
+    content:""; position:absolute; inset:0; z-index:2; pointer-events:none;
+    background:linear-gradient(180deg, rgba(13,14,16,0) 55%, rgba(13,14,16,0.55) 100%);
+  }
+
   /* ---------------- Manifesto ---------------- */
   .manifesto{ background:var(--bg-1); border-top:1px solid var(--hairline); border-bottom:1px solid var(--hairline); }
   .manifesto-grid{
-    display:grid; grid-template-columns:0.9fr 1.1fr; gap:80px; align-items:start;
+    display:grid; grid-template-columns:0.8fr 1.2fr; gap:64px; align-items:center;
   }
+  .manifesto-media{ border-radius:2px; aspect-ratio:4/5; }
+  .manifesto-media img{ filter:grayscale(1) contrast(1.1) brightness(0.82); }
   .manifesto-quote{
     font-family:var(--f-display); font-style:italic; font-weight:400;
     font-size:clamp(24px,2.6vw,32px); line-height:1.38; color:var(--ink-0);
@@ -283,6 +305,21 @@
   .pillar .num{ font-family:var(--f-display); font-style:italic; color:var(--navy-0); font-size:15px; display:block; margin-bottom:14px; }
   .pillar h4{ font-family:var(--f-body); font-weight:700; font-size:14px; letter-spacing:0.03em; margin:0 0 8px; color:var(--ink-0); }
   .pillar p{ font-size:13.5px; color:var(--ink-2); margin:0; line-height:1.55; }
+
+  /* ---------------- photo triptych band ---------------- */
+  .triptych{ background:var(--bg-0); }
+  .triptych-head{ display:flex; justify-content:space-between; align-items:flex-end; gap:24px; margin-bottom:44px; flex-wrap:wrap; }
+  .triptych-head h2{ font-size:clamp(26px,3.2vw,36px); max-width:520px; line-height:1.16; }
+  .triptych-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--hairline); border:1px solid var(--hairline); }
+  .triptych-item{ aspect-ratio:3/4; }
+  .triptych-item img{ transition:transform 1.1s var(--ease); }
+  .triptych-item:hover img{ transform:scale(1.06); }
+  .triptych-cap{
+    position:absolute; left:0; right:0; bottom:0; z-index:3; padding:24px;
+    display:flex; align-items:baseline; gap:10px;
+  }
+  .triptych-cap .n{ font-family:var(--f-display); font-style:italic; color:var(--navy-0); font-size:14px; }
+  .triptych-cap .t{ font-size:13px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--steel-1); }
 
   /* ---------------- Services ---------------- */
   .services-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--hairline); border:1px solid var(--hairline); }
@@ -338,6 +375,10 @@
     background:var(--bg-1); border-top:1px solid var(--hairline); border-bottom:1px solid var(--hairline);
     overflow:hidden; position:relative;
   }
+  .cta-band .photo{ position:absolute; inset:0; z-index:0; }
+  .cta-band .photo img{ filter:grayscale(1) contrast(1.1) brightness(0.55); }
+  .cta-band .photo::after{ background:linear-gradient(160deg, rgba(62,92,121,0.4), rgba(13,14,16,0.92) 75%); }
+  .cta-band .wrap{ position:relative; z-index:2; }
   .cta-inner{ display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:wrap; position:relative; z-index:2; }
   .cta-inner h2{ font-size:clamp(28px,3.6vw,42px); max-width:560px; line-height:1.16; }
   .cta-ring-deco{
@@ -379,11 +420,14 @@
     nav.links{ display:none; }
     .nav-cta .btn{ display:none; }
     .burger{ display:block; }
-    .manifesto-grid{ grid-template-columns:1fr; gap:48px; }
+    .manifesto-grid{ grid-template-columns:1fr; gap:40px; }
+    .manifesto-media{ aspect-ratio:16/9; max-width:480px; }
     .pillars{ grid-template-columns:1fr; }
     .services-grid{ grid-template-columns:1fr; }
     .team-grid{ grid-template-columns:repeat(2,1fr); row-gap:52px; }
     .hero-ring{ opacity:0.55; }
+    .triptych-grid{ grid-template-columns:1fr; }
+    .triptych-item{ aspect-ratio:16/9; }
   }
   @media (max-width: 620px){
     section{ padding:84px 0; }
@@ -393,6 +437,7 @@
     .cta-inner{ flex-direction:column; align-items:flex-start; }
     .contact-details{ gap:28px; }
     .foot-top{ flex-direction:column; }
+    .triptych-head{ flex-direction:column; align-items:flex-start; }
   }
   @media (max-width: 420px){
     .team-grid{ grid-template-columns:1fr; max-width:260px; margin:0 auto; }
@@ -455,13 +500,16 @@
   <section class="manifesto" id="nosotros">
     <div class="wrap">
       <div class="manifesto-grid">
+        <div class="photo manifesto-media reveal">
+          <img src="https://images.unsplash.com/photo-1611702817692-ee0591608901?fm=jpg&amp;q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Retrato editorial en blanco y negro de un profesional, estética NOIA" loading="lazy">
+        </div>
         <div class="reveal">
           <span class="eyebrow">Nuestra mirada</span>
           <p class="manifesto-quote" style="margin-top:22px;">Como el metal, <span class="mark">una reputación se forma a fuego</span> — y se pule con método, no con suerte.</p>
-        </div>
-        <div class="manifesto-body reveal">
-          <p>Trabajamos con fundadores, directivos y profesionales que ya construyeron algo importante, pero cuya marca personal todavía no comunica el nivel real de lo que han logrado.</p>
-          <p>No hacemos maquillaje de imagen. Diseñamos una narrativa, una presencia y un criterio de comunicación que sostienen decisiones de negocio: levantar capital, cerrar un cliente, liderar un equipo o simplemente ser reconocido por el trabajo correcto.</p>
+          <div class="manifesto-body" style="margin-top:28px;">
+            <p>Trabajamos con fundadores, directivos y profesionales que ya construyeron algo importante, pero cuya marca personal todavía no comunica el nivel real de lo que han logrado.</p>
+            <p>No hacemos maquillaje de imagen. Diseñamos una narrativa, una presencia y un criterio de comunicación que sostienen decisiones de negocio: levantar capital, cerrar un cliente, liderar un equipo o simplemente ser reconocido por el trabajo correcto.</p>
+          </div>
         </div>
       </div>
 
@@ -506,6 +554,30 @@
           <div class="ring service-ring" aria-hidden="true"></div>
           <h3>Contenido & visibilidad</h3>
           <p>Storytelling, LinkedIn y relaciones con medios para instalar tu nombre donde tu próxima oportunidad lo pueda encontrar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TRÍPTICO FOTOGRÁFICO ============ -->
+  <section class="triptych">
+    <div class="wrap">
+      <div class="triptych-head reveal">
+        <h2>Así se ve una marca personal bien construida</h2>
+        <p style="color:var(--ink-2); font-size:15px; max-width:360px;">Estrategia, imagen y visibilidad trabajando como un mismo sistema — no como piezas sueltas.</p>
+      </div>
+      <div class="triptych-grid reveal-stagger reveal">
+        <div class="photo triptych-item" style="--i:0">
+          <img src="https://images.unsplash.com/photo-1613064756072-52b429a1e06f?fm=jpg&amp;q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="Retrato editorial representando estrategia de marca personal" loading="lazy">
+          <div class="triptych-cap"><span class="n">01</span><span class="t">Estrategia</span></div>
+        </div>
+        <div class="photo triptych-item" style="--i:1">
+          <img src="https://images.unsplash.com/photo-1541715301255-12a4839b424a?fm=jpg&amp;q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="Retrato editorial representando imagen ejecutiva" loading="lazy">
+          <div class="triptych-cap"><span class="n">02</span><span class="t">Imagen</span></div>
+        </div>
+        <div class="photo triptych-item" style="--i:2">
+          <img src="https://images.unsplash.com/photo-1620122303020-87ec826cf70d?fm=jpg&amp;q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="Retrato editorial representando visibilidad y presencia pública" loading="lazy">
+          <div class="triptych-cap"><span class="n">03</span><span class="t">Visibilidad</span></div>
         </div>
       </div>
     </div>
@@ -604,6 +676,9 @@
 
   <!-- ============ CTA / CONTACTO ============ -->
   <section class="cta-band" id="contacto">
+    <div class="photo" aria-hidden="true">
+      <img src="https://images.unsplash.com/photo-1690741818722-3f96fc94f678?fm=jpg&amp;q=80&amp;w=1800&amp;auto=format&amp;fit=crop" alt="" loading="lazy">
+    </div>
     <div class="ring cta-ring-deco" aria-hidden="true"></div>
     <div class="wrap">
       <div class="cta-inner reveal">
