@@ -442,6 +442,367 @@
   @media (max-width: 420px){
     .team-grid{ grid-template-columns:1fr; max-width:260px; margin:0 auto; }
   }
+
+
+  /* ---------------- Practice ---------------- */
+
+.practice-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:1px;
+  background:var(--hairline);
+  border:1px solid var(--hairline);
+}
+
+.practice-card{
+  background:var(--bg-1);
+  overflow:hidden;
+  transition:background .45s var(--ease);
+}
+
+.practice-card:hover{
+  background:var(--bg-2);
+}
+
+
+/* IMAGE */
+
+.practice-image{
+  position:relative;
+  aspect-ratio:16/10;
+  overflow:hidden;
+  background:var(--bg-3);
+}
+
+.practice-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+
+  filter:
+    grayscale(1)
+    contrast(1.08)
+    brightness(.78);
+
+  transform:scale(1.01);
+
+  transition:
+    transform 1s var(--ease),
+    filter .6s var(--ease);
+}
+
+.practice-card:hover .practice-image img{
+  transform:scale(1.06);
+
+  filter:
+    grayscale(.8)
+    contrast(1.1)
+    brightness(.82);
+}
+
+
+/* BLUE OVERLAY */
+
+.practice-image::after{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  background:
+    linear-gradient(
+      160deg,
+      rgba(62,92,121,.38),
+      rgba(13,14,16,.72) 82%
+    );
+
+  mix-blend-mode:color;
+
+  pointer-events:none;
+}
+
+
+/* DARK GRADIENT */
+
+.practice-image::before{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  z-index:2;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(13,14,16,0) 45%,
+      rgba(13,14,16,.72) 100%
+    );
+
+  pointer-events:none;
+}
+
+
+/* NUMBER */
+
+.practice-number{
+  position:absolute;
+
+  z-index:4;
+
+  top:22px;
+  right:24px;
+
+  font-family:var(--f-display);
+  font-style:italic;
+
+  font-size:15px;
+
+  color:var(--steel-1);
+
+  opacity:.85;
+}
+
+
+/* CONTENT */
+
+.practice-content{
+  padding:30px 30px 34px;
+}
+
+.practice-tag{
+  display:block;
+
+  font-size:11px;
+
+  letter-spacing:.16em;
+
+  text-transform:uppercase;
+
+  color:var(--navy-0);
+
+  font-weight:700;
+
+  margin-bottom:12px;
+}
+
+.practice-content h3{
+  font-size:24px;
+
+  line-height:1.15;
+
+  margin-bottom:13px;
+}
+
+.practice-content p{
+  color:var(--ink-2);
+
+  font-size:14px;
+
+  line-height:1.65;
+
+  max-width:430px;
+
+  margin:0;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width:980px){
+
+  .practice-grid{
+    grid-template-columns:1fr;
+  }
+
+  .practice-image{
+    aspect-ratio:16/8;
+  }
+
+}
+
+
+@media (max-width:620px){
+
+  .practice-content{
+    padding:25px 22px 28px;
+  }
+
+  .practice-content h3{
+    font-size:21px;
+  }
+
+  .practice-image{
+    aspect-ratio:16/10;
+  }
+}
+
+/* ---------------- Locked Triptych ---------------- */
+
+.triptych-locked{
+  position:relative;
+  display:block;
+  cursor:pointer;
+  overflow:hidden;
+  isolation:isolate;
+}
+
+/* Imagen desenfocada */
+.triptych-locked img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+
+  filter:
+    grayscale(1)
+    contrast(1.08)
+    brightness(.72)
+    blur(15px);
+
+  transform:scale(1.08);
+
+  transition:
+    transform .8s var(--ease),
+    filter .6s var(--ease);
+}
+
+
+/* Capa oscura + azul */
+.triptych-locked::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:2;
+
+  background:
+    linear-gradient(
+      160deg,
+      rgba(62,92,121,.46),
+      rgba(13,14,16,.82) 80%
+    );
+
+  mix-blend-mode:normal;
+
+  transition:background .4s var(--ease);
+}
+
+
+/* Hover */
+.triptych-locked:hover img{
+  transform:scale(1.13);
+
+  filter:
+    grayscale(.85)
+    contrast(1.08)
+    brightness(.78)
+    blur(10px);
+}
+
+.triptych-locked:hover::after{
+  background:
+    linear-gradient(
+      160deg,
+      rgba(62,92,121,.38),
+      rgba(13,14,16,.72) 80%
+    );
+}
+
+
+/* Centro de bloqueo */
+
+.triptych-lock{
+  position:absolute;
+
+  z-index:5;
+
+  top:50%;
+  left:50%;
+
+  transform:translate(-50%, -50%);
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+
+  text-align:center;
+
+  pointer-events:none;
+
+  transition:
+    transform .4s var(--ease),
+    opacity .4s var(--ease);
+}
+
+
+.triptych-locked:hover .triptych-lock{
+  transform:translate(-50%, -54%);
+}
+
+
+/* Candado */
+
+.lock-icon{
+  width:46px;
+  height:46px;
+
+  border:1px solid rgba(237,238,240,.32);
+  border-radius:50%;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  margin-bottom:14px;
+
+  backdrop-filter:blur(4px);
+}
+
+
+.lock-icon svg{
+  width:19px;
+  height:19px;
+
+  stroke:var(--steel-1);
+  stroke-width:1.3;
+
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+
+/* Texto */
+
+.triptych-lock span{
+  color:var(--steel-1);
+
+  font-family:var(--f-body);
+
+  font-size:12px;
+
+  font-weight:700;
+
+  letter-spacing:.15em;
+
+  text-transform:uppercase;
+}
+
+
+.triptych-lock small{
+  margin-top:5px;
+
+  color:rgba(241,241,239,.62);
+
+  font-size:10px;
+
+  letter-spacing:.08em;
+
+  text-transform:uppercase;
+}
+
+
+/* Número y categoría */
+
+.triptych-cap{
+  z-index:6;
+}
 </style>
 </head>
 <body>
@@ -455,7 +816,7 @@
     <nav class="links" aria-label="Navegación principal">
       <a href="#nosotros">Nosotros</a>
       <a href="#servicios">Servicios</a>
-      <a href="#equipo">Equipo</a>
+      <a href="#practica">Práctica</a>
       <a href="#contacto">Contacto</a>
     </nav>
     <div class="nav-cta">
@@ -482,7 +843,7 @@
     <div class="ring hero-ring" aria-hidden="true"></div>
     <div class="wrap hero-grid reveal" id="heroReveal">
       <span class="eyebrow">Marca personal · Estrategia ejecutiva</span>
-      <h1>Tu nombre es un activo.<br>Nosotros lo <em>pulimos</em>.</h1>
+      <h1>Hay mucho más en ti.<br><em>Hagámoslo visible.</em></h1>
       <p class="lead">NOIA Group es la consultora que convierte la reputación de líderes y ejecutivos en una marca personal sólida, coherente y memorable — dentro y fuera de la sala de juntas.</p>
       <div class="hero-actions">
         <a href="#contacto" class="btn btn-primary">Agenda tu diagnóstico</a>
@@ -560,119 +921,289 @@
   </section>
 
   <!-- ============ TRÍPTICO FOTOGRÁFICO ============ -->
-  <section class="triptych">
-    <div class="wrap">
-      <div class="triptych-head reveal">
-        <h2>Así se ve una marca personal bien construida</h2>
-        <p style="color:var(--ink-2); font-size:15px; max-width:360px;">Estrategia, imagen y visibilidad trabajando como un mismo sistema — no como piezas sueltas.</p>
-      </div>
-      <div class="triptych-grid reveal-stagger reveal">
-        <div class="photo triptych-item" style="--i:0">
-          <img src="https://images.unsplash.com/photo-1613064756072-52b429a1e06f?fm=jpg&amp;q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="Retrato editorial representando estrategia de marca personal" loading="lazy">
-          <div class="triptych-cap"><span class="n">01</span><span class="t">Estrategia</span></div>
-        </div>
-        <div class="photo triptych-item" style="--i:1">
-          <img src="https://images.unsplash.com/photo-1541715301255-12a4839b424a?fm=jpg&amp;q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="Retrato editorial representando imagen ejecutiva" loading="lazy">
-          <div class="triptych-cap"><span class="n">02</span><span class="t">Imagen</span></div>
-        </div>
-        <div class="photo triptych-item" style="--i:2">
-          <img src="https://images.unsplash.com/photo-1620122303020-87ec826cf70d?fm=jpg&amp;q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="Retrato editorial representando visibilidad y presencia pública" loading="lazy">
-          <div class="triptych-cap"><span class="n">03</span><span class="t">Visibilidad</span></div>
-        </div>
-      </div>
+<section class="triptych">
+  <div class="wrap">
+
+    <div class="triptych-head reveal">
+      <h2>Así se ve una marca personal bien construida</h2>
+
+      <p style="color:var(--ink-2); font-size:15px; max-width:360px;">
+        Estrategia, imagen y visibilidad trabajando como un mismo sistema —
+        no como piezas sueltas.
+      </p>
     </div>
-  </section>
 
-  <!-- ============ EQUIPO ============ -->
-  <section id="equipo" style="background:var(--bg-1); border-top:1px solid var(--hairline); border-bottom:1px solid var(--hairline);">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">Equipo</span>
-        <h2>Las cuatro personas al frente de NOIA</h2>
-        <p>Un equipo pequeño y senior a propósito: cada socio lidera personalmente las cuentas que acompaña.</p>
-      </div>
 
-      <div class="team-grid reveal-stagger reveal">
+    <div class="triptych-grid reveal-stagger reveal">
 
-        <div class="team-card" style="--i:0">
-          <div class="ring team-photo">
-            <div class="team-photo-inner">
-              <img src="" alt="Foto de Integrante 1">
-              <div class="placeholder">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
-                <span>Foto próximamente</span>
-              </div>
-            </div>
+
+      <!-- 01 -->
+      <a
+        href="https://wa.me/59178406884?text=Hola%20Noia%20Group%2C%20vi%20su%20p%C3%A1gina%20y%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20su%20trabajo%20de%20marca%20personal."
+        class="photo triptych-item triptych-locked"
+        style="--i:0"
+        target="_blank"
+        rel="noopener"
+        aria-label="Consultar sobre estrategia de marca personal"
+      >
+
+        <img
+          src="https://images.unsplash.com/photo-1613064756072-52b429a1e06f?fm=jpg&amp;q=80&amp;w=1000&amp;auto=format&amp;fit=crop"
+          alt="Retrato editorial representando estrategia de marca personal"
+          loading="lazy"
+        >
+
+        <div class="triptych-blur"></div>
+
+        <div class="triptych-lock">
+          <div class="lock-icon">
+            <svg viewBox="0 0 24 24" fill="none">
+              <rect x="5" y="10" width="14" height="11" rx="2"/>
+              <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
+            </svg>
           </div>
-          <div class="team-name">Nombre Apellido</div>
-          <div class="team-role">Socia Fundadora</div>
-          <p class="team-bio">Reemplaza este texto con una biografía breve: trayectoria, especialidad y qué área de NOIA lidera.</p>
-          <div class="team-social">
-            <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 8.98h4v12.02H3V8.98zm7 0h3.8v1.64h.05c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.78 2.65 4.78 6.1v6.34h-4v-5.62c0-1.34-.02-3.06-1.87-3.06-1.87 0-2.16 1.46-2.16 2.96v5.72h-4V8.98z"/></svg></a>
-            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17" cy="7" r="0.9" fill="currentColor" stroke="none"/></svg></a>
-          </div>
+
+          <span>Ver resultado</span>
+          <small>Ver aqui</small>
         </div>
 
-        <div class="team-card" style="--i:1">
-          <div class="ring team-photo">
-            <div class="team-photo-inner">
-              <img src="" alt="Foto de Integrante 2">
-              <div class="placeholder">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
-                <span>Foto próximamente</span>
-              </div>
-            </div>
-          </div>
-          <div class="team-name">Nombre Apellido</div>
-          <div class="team-role">Socio · Estrategia</div>
-          <p class="team-bio">Reemplaza este texto con una biografía breve: trayectoria, especialidad y qué área de NOIA lidera.</p>
-          <div class="team-social">
-            <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 8.98h4v12.02H3V8.98zm7 0h3.8v1.64h.05c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.78 2.65 4.78 6.1v6.34h-4v-5.62c0-1.34-.02-3.06-1.87-3.06-1.87 0-2.16 1.46-2.16 2.96v5.72h-4V8.98z"/></svg></a>
-            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17" cy="7" r="0.9" fill="currentColor" stroke="none"/></svg></a>
-          </div>
+        <div class="triptych-cap">
+          <span class="n">01</span>
+          <span class="t">Estrategia</span>
         </div>
 
-        <div class="team-card" style="--i:2">
-          <div class="ring team-photo">
-            <div class="team-photo-inner">
-              <img src="" alt="Foto de Integrante 3">
-              <div class="placeholder">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
-                <span>Foto próximamente</span>
-              </div>
-            </div>
+      </a>
+
+
+      <!-- 02 -->
+      <a
+        href="https://wa.me/59178406884?text=Hola%20Noia%20Group%2C%20vi%20su%20p%C3%A1gina%20y%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20su%20trabajo%20de%20marca%20personal."
+        class="photo triptych-item triptych-locked"
+        style="--i:1"
+        target="_blank"
+        rel="noopener"
+        aria-label="Consultar sobre imagen personal"
+      >
+
+        <img
+          src="https://images.unsplash.com/photo-1541715301255-12a4839b424a?fm=jpg&amp;q=80&amp;w=1000&amp;auto=format&amp;fit=crop"
+          alt="Retrato editorial representando imagen ejecutiva"
+          loading="lazy"
+        >
+
+        <div class="triptych-blur"></div>
+
+        <div class="triptych-lock">
+          <div class="lock-icon">
+            <svg viewBox="0 0 24 24" fill="none">
+              <rect x="5" y="10" width="14" height="11" rx="2"/>
+              <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
+            </svg>
           </div>
-          <div class="team-name">Nombre Apellido</div>
-          <div class="team-role">Socia · Imagen</div>
-          <p class="team-bio">Reemplaza este texto con una biografía breve: trayectoria, especialidad y qué área de NOIA lidera.</p>
-          <div class="team-social">
-            <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 8.98h4v12.02H3V8.98zm7 0h3.8v1.64h.05c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.78 2.65 4.78 6.1v6.34h-4v-5.62c0-1.34-.02-3.06-1.87-3.06-1.87 0-2.16 1.46-2.16 2.96v5.72h-4V8.98z"/></svg></a>
-            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17" cy="7" r="0.9" fill="currentColor" stroke="none"/></svg></a>
-          </div>
+
+          <span>Ver resultado</span>
+          <small>Ver aqui</small>
         </div>
 
-        <div class="team-card" style="--i:3">
-          <div class="ring team-photo">
-            <div class="team-photo-inner">
-              <img src="" alt="Foto de Integrante 4">
-              <div class="placeholder">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
-                <span>Foto próximamente</span>
-              </div>
-            </div>
-          </div>
-          <div class="team-name">Nombre Apellido</div>
-          <div class="team-role">Socio · Contenido</div>
-          <p class="team-bio">Reemplaza este texto con una biografía breve: trayectoria, especialidad y qué área de NOIA lidera.</p>
-          <div class="team-social">
-            <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 8.98h4v12.02H3V8.98zm7 0h3.8v1.64h.05c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.78 2.65 4.78 6.1v6.34h-4v-5.62c0-1.34-.02-3.06-1.87-3.06-1.87 0-2.16 1.46-2.16 2.96v5.72h-4V8.98z"/></svg></a>
-            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17" cy="7" r="0.9" fill="currentColor" stroke="none"/></svg></a>
-          </div>
+        <div class="triptych-cap">
+          <span class="n">02</span>
+          <span class="t">Imagen</span>
         </div>
 
-      </div>
+      </a>
+
+
+      <!-- 03 -->
+      <a
+        href="https://wa.me/59178406884?text=Hola%20Noia%20Group%2C%20vi%20su%20p%C3%A1gina%20y%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20su%20trabajo%20de%20marca%20personal."
+        class="photo triptych-item triptych-locked"
+        style="--i:2"
+        target="_blank"
+        rel="noopener"
+        aria-label="Consultar sobre visibilidad y presencia pública"
+      >
+
+        <img
+          src="https://images.unsplash.com/photo-1620122303020-87ec826cf70d?fm=jpg&amp;q=80&amp;w=1000&amp;auto=format&amp;fit=crop"
+          alt="Retrato editorial representando visibilidad y presencia pública"
+          loading="lazy"
+        >
+
+        <div class="triptych-blur"></div>
+
+        <div class="triptych-lock">
+          <div class="lock-icon">
+            <svg viewBox="0 0 24 24" fill="none">
+              <rect x="5" y="10" width="14" height="11" rx="2"/>
+              <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
+            </svg>
+          </div>
+
+          <span>Ver resultado</span>
+          <small>Ver aqui</small>
+        </div>
+
+        <div class="triptych-cap">
+          <span class="n">03</span>
+          <span class="t">Visibilidad</span>
+        </div>
+
+      </a>
+
+
     </div>
-  </section>
+  </div>
+</section>
+
+ <!-- ============ PRÁCTICA ============ -->
+<section id="practica" style="background:var(--bg-1); border-top:1px solid var(--hairline); border-bottom:1px solid var(--hairline);">
+
+  <div class="wrap">
+
+    <div class="section-head reveal">
+      <span class="eyebrow">Práctica</span>
+
+      <h2>
+        La marca personal<br>
+        <em>también se entrena.</em>
+      </h2>
+
+      <p>
+        No trabajamos solamente lo que dices. Trabajamos cómo lo dices,
+        cómo te presentas y cómo haces que los demás perciban tu presencia.
+      </p>
+    </div>
+
+
+    <div class="practice-grid reveal-stagger reveal">
+
+
+      <!-- PRÁCTICA 01 -->
+      <article class="practice-card" style="--i:0">
+
+        <div class="practice-image photo">
+
+          <img
+            src="assets/imgnoia1.jpeg"
+            alt="Persona entrenando frente al espejo"
+          >
+
+          <div class="practice-number">01</div>
+
+        </div>
+
+        <div class="practice-content">
+
+          <span class="practice-tag">Presencia</span>
+
+          <h3>Entrenamiento frente al espejo</h3>
+
+          <p>
+            Aprendemos a reconocer nuestra postura, gestos y expresiones
+            para construir una presencia más segura y auténtica.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <!-- PRÁCTICA 02 -->
+      <article class="practice-card" style="--i:1">
+
+        <div class="practice-image photo">
+
+          <img
+            src="assets/imgnoia2.jpeg"
+            alt="Ejercicio de respiración para controlar la voz"
+          >
+
+          <div class="practice-number">02</div>
+
+        </div>
+
+        <div class="practice-content">
+
+          <span class="practice-tag">Respiración</span>
+
+          <h3>Respirar antes de hablar</h3>
+
+          <p>
+            Trabajamos la respiración como base para controlar los nervios,
+            proyectar mejor la voz y comunicar con mayor seguridad.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <!-- PRÁCTICA 03 -->
+      <article class="practice-card" style="--i:2">
+
+        <div class="practice-image photo">
+
+          <img
+            src="assets/imgnoia4.jpeg"
+            alt="Persona realizando ejercicios de vocalización"
+          >
+
+          <div class="practice-number">03</div>
+
+        </div>
+
+        <div class="practice-content">
+
+          <span class="practice-tag">Comunicación</span>
+
+          <h3>Respiración y vocalización</h3>
+
+          <p>
+            Ejercitamos la dicción, el ritmo y la articulación para que
+            cada palabra tenga claridad, intención y presencia.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <!-- PRÁCTICA 04 -->
+      <article class="practice-card" style="--i:3">
+
+        <div class="practice-image photo">
+
+          <img
+            src="assets/imgnoia3.jpeg"
+            alt="Persona practicando expresión corporal"
+          >
+
+          <div class="practice-number">04</div>
+
+        </div>
+
+        <div class="practice-content">
+
+          <span class="practice-tag">Expresión</span>
+
+          <h3>Presencia frente a cámara</h3>
+
+          <p>
+            Practicamos mirada, postura, gestos y expresión para conseguir
+            una comunicación natural tanto frente a una persona como frente
+            a una cámara.
+          </p>
+
+        </div>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</section>
 
   <!-- ============ CTA / CONTACTO ============ -->
   <section class="cta-band" id="contacto">
@@ -686,26 +1217,29 @@
           <span class="eyebrow">Contacto</span>
           <h2 style="margin-top:18px;">¿Listo para construir una marca que abra puertas?</h2>
         </div>
-        <a href="mailto:hola@noiagroup.com" class="btn btn-primary">Escríbenos</a>
-      </div>
+        <a href="https://wa.me/59178406884?text=Hola%20Noia%20Group%2C%20vi%20su%20p%C3%A1gina%20web%20y%20me%20gustar%C3%ADa%20realizar%20una%20consultor%C3%ADa.%20%C2%A1Quisiera%20m%C3%A1s%20informaci%C3%B3n%21" 
+   class="btn btn-primary" 
+   target="_blank">
+  Escríbenos
+</a>
 
       <div class="contact-details reveal">
         <div class="contact-item">
           <span class="lbl">Correo</span>
-          <span class="val">hola@noiagroup.com</span>
+          <span class="val">noiagroup.oficial@gmail.com</span>
         </div>
         <div class="contact-item">
           <span class="lbl">Teléfono / WhatsApp</span>
-          <span class="val">+591 000 00000</span>
+          <span class="val">+591 78406884</span>
         </div>
         <div class="contact-item">
           <span class="lbl">Ciudad</span>
           <span class="val">La Paz, Bolivia</span>
         </div>
-        <div class="contact-item">
+        <!-- <div class="contact-item">
           <span class="lbl">Horario</span>
           <span class="val">Lun – Vie, 9:00 – 18:00</span>
-        </div>
+        </div> -->
       </div>
     </div>
   </section>
@@ -722,16 +1256,29 @@
       <nav class="foot-nav">
         <a href="#nosotros">Nosotros</a>
         <a href="#servicios">Servicios</a>
-        <a href="#equipo">Equipo</a>
+        <a href="#practica">Práctica</a>
         <a href="#contacto">Contacto</a>
       </nav>
       <div class="foot-social">
-        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 8.98h4v12.02H3V8.98zm7 0h3.8v1.64h.05c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.78 2.65 4.78 6.1v6.34h-4v-5.62c0-1.34-.02-3.06-1.87-3.06-1.87 0-2.16 1.46-2.16 2.96v5.72h-4V8.98z"/></svg></a>
-        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17" cy="7" r="0.9" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://www.instagram.com/noiagroup.oficial/" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17" cy="7" r="0.9" fill="currentColor" stroke="none"/></svg></a>
+           <a 
+  href="https://www.facebook.com/profile.php?id=61593147354714" 
+  aria-label="Facebook"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <svg 
+    viewBox="0 0 24 24" 
+    fill="currentColor"
+    aria-hidden="true"
+  >
+    <path d="M14 8h3V4h-3c-3.31 0-5 1.69-5 5v3H6v4h3v8h4v-8h3.5l.5-4H13V9c0-.66.34-1 1-1z"/>
+  </svg>
+</a>
+        </div>
       </div>
-    </div>
-    <div class="foot-bottom">
-      <span>© 2026 NOIA Group. Todos los derechos reservados.</span>
+      <div class="foot-bottom">
+        <span>© 2026 NOIA-Group. Todos los derechos reservados.</span>
       <span>Consultoría de marca personal para líderes y ejecutivos.</span>
     </div>
   </div>
