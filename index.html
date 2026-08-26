@@ -797,6 +797,464 @@
   text-transform:uppercase;
 }
 
+/* =========================================================
+   NOIA 90 · INVESTMENT
+   ========================================================= */
+
+.investment-section{
+  background:var(--bg-1);
+
+  border-top:1px solid var(--hairline);
+  border-bottom:1px solid var(--hairline);
+
+  padding:120px 0;
+}
+
+
+/* HEADER */
+
+.investment-section .section-head{
+  max-width:780px;
+  margin-bottom:70px;
+}
+
+.investment-section .section-head h2{
+  margin-top:18px;
+}
+
+.investment-section .section-head p{
+  max-width:620px;
+
+  margin-top:22px;
+
+  color:var(--ink-2);
+
+  font-size:15px;
+
+  line-height:1.75;
+}
+
+
+/* GRID */
+
+.investment-grid{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap:1px;
+
+  background:var(--hairline);
+
+  border:1px solid var(--hairline);
+}
+
+
+/* CARD */
+
+.investment-card{
+
+  position:relative;
+
+  background:var(--bg-1);
+
+  min-height:100%;
+
+  transition:
+    background .45s var(--ease),
+    transform .45s var(--ease);
+
+}
+
+.investment-card:hover{
+
+  background:var(--bg-2);
+
+}
+
+
+/* FEATURED */
+
+.investment-featured{
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(62,92,121,.10),
+      transparent 45%
+    ),
+    var(--bg-1);
+
+}
+
+
+/* TOP */
+
+.investment-top{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  padding:26px 30px;
+
+  border-bottom:1px solid var(--hairline);
+
+}
+
+
+.investment-number{
+
+  font-family:var(--f-display);
+
+  font-style:italic;
+
+  font-size:15px;
+
+  color:var(--steel-1);
+
+}
+
+
+.investment-label{
+
+  font-size:10px;
+
+  font-weight:700;
+
+  letter-spacing:.15em;
+
+  text-transform:uppercase;
+
+  color:var(--ink-3);
+
+}
+
+
+/* CONTENT */
+
+.investment-content{
+
+  padding:38px 30px 34px;
+
+}
+
+
+.investment-content h3{
+
+  font-size:27px;
+
+  line-height:1.1;
+
+  margin-bottom:17px;
+
+}
+
+
+.investment-description{
+
+  color:var(--ink-2);
+
+  font-size:14px;
+
+  line-height:1.7;
+
+  min-height:105px;
+
+}
+
+
+/* PRICE */
+
+.investment-price{
+
+  display:flex;
+
+  align-items:flex-start;
+
+  gap:8px;
+
+  margin-top:30px;
+
+}
+
+
+.investment-price .currency{
+
+  margin-top:9px;
+
+  font-size:13px;
+
+  color:var(--steel-1);
+
+  letter-spacing:.08em;
+
+}
+
+
+.investment-price strong{
+
+  font-family:var(--f-display);
+
+  font-size:48px;
+
+  font-weight:500;
+
+  line-height:1;
+
+  letter-spacing:-.03em;
+
+}
+
+
+.investment-duration{
+
+  display:block;
+
+  margin-top:10px;
+
+  color:var(--ink-3);
+
+  font-size:11px;
+
+  letter-spacing:.04em;
+
+}
+
+
+/* DIVIDER */
+
+.investment-divider{
+
+  height:1px;
+
+  background:var(--hairline);
+
+  margin:30px 0 24px;
+
+}
+
+
+/* LIST */
+
+.investment-list{
+
+  list-style:none;
+
+  margin:0;
+
+  padding:0;
+
+}
+
+
+.investment-list li{
+
+  position:relative;
+
+  padding-left:19px;
+
+  margin-bottom:12px;
+
+  color:var(--ink-2);
+
+  font-size:13px;
+
+  line-height:1.5;
+
+}
+
+
+.investment-list li::before{
+
+  content:"";
+
+  position:absolute;
+
+  left:0;
+
+  top:.58em;
+
+  width:5px;
+
+  height:5px;
+
+  border-radius:50%;
+
+  background:var(--steel-1);
+
+}
+
+
+/* SPECIAL OFFER */
+
+.investment-offer{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  gap:15px;
+
+  margin-top:24px;
+
+  padding:14px 16px;
+
+  border:1px solid rgba(62,92,121,.35);
+
+  background:rgba(62,92,121,.08);
+
+}
+
+
+.investment-offer span{
+
+  font-size:10px;
+
+  text-transform:uppercase;
+
+  letter-spacing:.12em;
+
+  color:var(--ink-3);
+
+}
+
+
+.investment-offer strong{
+
+  font-family:var(--f-display);
+
+  font-size:21px;
+
+  color:var(--steel-1);
+
+}
+
+
+/* INSTALLMENTS */
+
+.investment-installment{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  margin-top:9px;
+
+  padding:0 2px;
+
+  color:var(--ink-3);
+
+  font-size:11px;
+
+}
+
+
+.investment-installment strong{
+
+  color:var(--ink-2);
+
+}
+
+
+/* BUTTON */
+
+.investment-btn{
+
+  width:100%;
+
+  justify-content:center;
+
+  margin-top:30px;
+
+}
+
+
+/* BOTTOM */
+
+.investment-bottom{
+
+  max-width:700px;
+
+  margin:75px auto 0;
+
+  padding-top:35px;
+
+  border-top:1px solid var(--hairline);
+
+  text-align:center;
+
+}
+
+
+.investment-bottom p{
+
+  max-width:580px;
+
+  margin:17px auto 25px;
+
+  color:var(--ink-2);
+
+  font-size:14px;
+
+  line-height:1.7;
+
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width:1000px){
+
+  .investment-grid{
+
+    grid-template-columns:1fr;
+
+  }
+
+  .investment-description{
+
+    min-height:auto;
+
+  }
+
+}
+
+
+@media (max-width:620px){
+
+  .investment-section{
+
+    padding:85px 0;
+
+  }
+
+  .investment-content{
+
+    padding:30px 23px;
+
+  }
+
+  .investment-top{
+
+    padding:22px 23px;
+
+  }
+
+  .investment-price strong{
+
+    font-size:42px;
+
+  }
+
+}
+
 
 /* Número y categoría */
 
@@ -818,6 +1276,7 @@
       <a href="#servicios">Servicios</a>
       <a href="#practica">Práctica</a>
       <a href="#contacto">Contacto</a>
+      <a href="#inversion">Precios</a>
     </nav>
     <div class="nav-cta">
       <a href="#contacto" class="btn btn-primary">Agenda tu diagnóstico</a>
@@ -833,6 +1292,7 @@
   <a href="#servicios">Servicios</a>
   <a href="#equipo">Equipo</a>
   <a href="#contacto">Contacto</a>
+  <a href="#inversion">Precios</a>
   <a href="#contacto" class="btn btn-primary">Agenda tu diagnóstico</a>
 </div>
 
@@ -1207,6 +1667,305 @@
 
 </section>
 
+<!-- ============ NOIA 90 · INVERSIÓN ============ -->
+<section id="inversion" class="investment-section">
+
+  <div class="wrap">
+
+    <div class="section-head reveal">
+
+      <span class="eyebrow">NOIA 90 · Inversión</span>
+
+      <h2>
+        Cada transformación<br>
+        <em>comienza con una decisión.</em>
+      </h2>
+
+      <p>
+        Un proceso de 90 días para construir una versión más consciente,
+        segura y visible de ti. Elige el nivel de acompañamiento que
+        mejor se adapte a tu proceso.
+      </p>
+
+    </div>
+
+
+    <div class="investment-grid reveal-stagger reveal">
+
+
+      <!-- ================= INDIVIDUAL ================= -->
+
+      <article class="investment-card investment-featured" style="--i:0">
+
+        <div class="investment-top">
+
+          <span class="investment-number">01</span>
+
+          <span class="investment-label">
+            Experiencia 1:1
+          </span>
+
+        </div>
+
+
+        <div class="investment-content">
+
+          <h3>NOIA Individual</h3>
+
+          <p class="investment-description">
+            Un proceso completamente personalizado para trabajar
+            tu identidad, comunicación, presencia y marca personal
+            desde tus objetivos y necesidades.
+          </p>
+
+
+          <div class="investment-price">
+
+            <span class="currency">Bs</span>
+
+            <strong>8.000</strong>
+
+          </div>
+
+          <span class="investment-duration">
+            90 días · Acompañamiento personalizado
+          </span>
+
+
+          <div class="investment-divider"></div>
+
+
+          <ul class="investment-list">
+
+            <li>Evaluación y diagnóstico inicial</li>
+
+            <li>Construcción de identidad personal</li>
+
+            <li>Autoconcepto y comunicación</li>
+
+            <li>Presencia, imagen y lenguaje corporal</li>
+
+            <li>Comunicación de alto impacto</li>
+
+            <li>Ejercicios prácticos y visualizaciones</li>
+
+            <li>Construcción estratégica de marca personal</li>
+
+            <li>Acompañamiento durante 90 días</li>
+
+          </ul>
+
+
+          <a
+            href="https://wa.me/59178406884?text=Hola%20NOIA%20Group%2C%20estoy%20interesado%20en%20NOIA%2090%20Individual%20y%20quisiera%20recibir%20m%C3%A1s%20informaci%C3%B3n."
+            class="btn btn-primary investment-btn"
+            target="_blank"
+            rel="noopener"
+          >
+            Quiero conocer NOIA 90
+          </a>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- ================= PAREJA ================= -->
+
+      <article class="investment-card" style="--i:1">
+
+        <div class="investment-top">
+
+          <span class="investment-number">02</span>
+
+          <span class="investment-label">
+            Experiencia Dúo
+          </span>
+
+        </div>
+
+
+        <div class="investment-content">
+
+          <h3>NOIA Pareja</h3>
+
+          <p class="investment-description">
+            Dos personas, un proceso compartido. Cada participante
+            desarrolla su propia identidad mientras ambos se acompañan
+            y potencian durante la transformación.
+          </p>
+
+
+          <div class="investment-price">
+
+            <span class="currency">Bs</span>
+
+            <strong>11.000</strong>
+
+          </div>
+
+          <span class="investment-duration">
+            Por pareja · 90 días
+          </span>
+
+
+          <div class="investment-divider"></div>
+
+
+          <ul class="investment-list">
+
+            <li>Evaluación y diagnóstico de ambos</li>
+
+            <li>Trabajo individual dentro de un proceso compartido</li>
+
+            <li>Construcción de identidad personal</li>
+
+            <li>Comunicación, presencia e imagen</li>
+
+            <li>Ejercicios de evolución conjunta</li>
+
+            <li>Visión y objetivos compartidos</li>
+
+            <li>Visualizaciones y ejercicios prácticos</li>
+
+            <li>Acompañamiento guiado durante 90 días</li>
+
+          </ul>
+
+
+          <a
+            href="https://wa.me/59178406884?text=Hola%20NOIA%20Group%2C%20estoy%20interesado%20en%20NOIA%2090%20Pareja%20y%20quisiera%20recibir%20m%C3%A1s%20informaci%C3%B3n."
+            class="btn btn-ghost investment-btn"
+            target="_blank"
+            rel="noopener"
+          >
+            Consultar modalidad
+          </a>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- ================= GRUPAL ================= -->
+
+      <article class="investment-card" style="--i:2">
+
+        <div class="investment-top">
+          <span class="investment-number">03</span>
+          <span class="investment-label">
+            Experiencia Grupal
+          </span>
+
+        </div>
+
+
+        <div class="investment-content">
+
+          <h3>NOIA Grupal</h3>
+
+          <p class="investment-description">
+            Una experiencia de transformación compartida para grupos
+            de hasta 20 personas, donde cada participante desarrolla
+            su propio proceso acompañado por la evolución del grupo.
+          </p>
+
+
+          <div class="investment-price">
+
+            <span class="currency">Bs</span>
+
+            <strong>4.500</strong>
+
+          </div>
+
+          <span class="investment-duration">
+            Por participante · Hasta 20 personas
+          </span>
+
+
+          <div class="investment-offer">
+            <span>Pago único preferencial</span>
+            <strong>Bs 4.000</strong>
+          </div>
+
+
+          <div class="investment-installment">
+            <span>O en 3 cuotas de</span>
+            <strong>Bs 1.500</strong>
+          </div>
+
+
+          <div class="investment-divider"></div>
+
+
+          <ul class="investment-list">
+
+            <li>Acceso al programa NOIA 90</li>
+
+            <li>Clases y sesiones grupales</li>
+
+            <li>Metodología estructurada en siete etapas</li>
+
+            <li>Ejercicios prácticos y seguimiento</li>
+
+            <li>Visualizaciones guiadas</li>
+
+            <li>Materiales de trabajo</li>
+
+            <li>Dinámica de acompañamiento entre participantes</li>
+
+            <li>Desarrollo de identidad, comunicación y presencia</li>
+
+          </ul>
+
+
+          <a
+            href="https://wa.me/59178406884?text=Hola%20NOIA%20Group%2C%20estoy%20interesado%20en%20NOIA%2090%20Grupal%20y%20quisiera%20recibir%20m%C3%A1s%20informaci%C3%B3n."
+            class="btn btn-ghost investment-btn"
+            target="_blank"
+            rel="noopener"
+          >
+            Consultar modalidad
+          </a>
+
+        </div>
+
+      </article>
+
+
+    </div>
+
+
+    <!-- CIERRE -->
+
+    <div class="investment-bottom reveal">
+
+      <span class="eyebrow">Antes de decidir</span>
+
+      <p>
+        ¿Quieres conocer cómo se vive el proceso?
+        Agenda una conversación con NOIA y conoce la metodología,
+        resuelve tus dudas y descubre qué modalidad se adapta mejor a ti.
+      </p>
+
+      <a
+        href="https://wa.me/59178406884?text=Hola%20NOIA%20Group%2C%20quiero%20conocer%20m%C3%A1s%20sobre%20NOIA%2090%20y%20agendar%20una%20conversaci%C3%B3n."
+        class="btn btn-primary"
+        target="_blank"
+        rel="noopener"
+      >
+        Agendar conversación
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
   <!-- ============ CTA / CONTACTO ============ -->
   <section class="cta-band" id="contacto">
     <div class="photo" aria-hidden="true">
@@ -1260,6 +2019,7 @@
         <a href="#servicios">Servicios</a>
         <a href="#practica">Práctica</a>
         <a href="#contacto">Contacto</a>
+        <a href="#inversion">Precios</a>
       </nav>
       <div class="foot-social">
           <a href="https://www.instagram.com/noiagroup.oficial/" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17" cy="7" r="0.9" fill="currentColor" stroke="none"/></svg></a>
