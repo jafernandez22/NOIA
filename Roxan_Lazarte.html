@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Roxan Lazarte · NOIA Group</title>
+
+  <style>
+
+    /* =====================================================
+       VARIABLES
+    ===================================================== */
+
+    :root{
+      --bg:#0d0e10;
+      --bg-soft:#131519;
+
+      --ink:#f1f1ef;
+      --ink-2:#a8abb0;
+      --steel:#8c9bab;
+
+      --line:rgba(241,241,239,.12);
+      --line-soft:rgba(241,241,239,.07);
+
+      --serif:Georgia,"Times New Roman",serif;
+      --sans:Arial,Helvetica,sans-serif;
+
+      --ease:cubic-bezier(.22,.61,.36,1);
+    }
+
+
+    /* =====================================================
+       RESET
+    ===================================================== */
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:var(--bg);
+      color:var(--ink);
+      font-family:var(--sans);
+      -webkit-font-smoothing:antialiased;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+
+    /* =====================================================
+       HEADER
+    ===================================================== */
+
+    .roxan-header{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      z-index:100;
+
+      padding:22px 0;
+
+      background:rgba(13,14,16,.72);
+      backdrop-filter:blur(14px);
+
+      border-bottom:1px solid var(--line-soft);
+    }
+
+    .roxan-nav{
+      width:min(1180px,calc(100% - 48px));
+      margin:auto;
+
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .roxan-brand{
+      font-size:14px;
+      font-weight:700;
+      letter-spacing:.08em;
+    }
+
+    .roxan-brand b{
+      color:var(--steel);
+      font-weight:400;
+    }
+
+    .back-link{
+      display:flex;
+      align-items:center;
+      gap:10px;
+
+      color:var(--ink-2);
+
+      font-size:10px;
+      font-weight:700;
+
+      letter-spacing:.14em;
+      text-transform:uppercase;
+
+      transition:color .3s ease;
+    }
+
+    .back-link span{
+      transition:transform .3s var(--ease);
+    }
+
+    .back-link:hover{
+      color:var(--ink);
+    }
+
+    .back-link:hover span{
+      transform:translateX(-5px);
+    }
+
+
+    /* =====================================================
+       HERO
+    ===================================================== */
+
+    .roxan-hero{
+
+      min-height:100vh;
+
+      width:min(1180px,calc(100% - 48px));
+
+      margin:auto;
+
+      display:grid;
+
+      grid-template-columns:1fr .8fr;
+
+      gap:90px;
+
+      align-items:center;
+
+      padding:150px 0 100px;
+    }
+
+
+    .roxan-kicker{
+
+      display:block;
+
+      margin-bottom:25px;
+
+      color:var(--steel);
+
+      font-size:10px;
+
+      font-weight:700;
+
+      letter-spacing:.2em;
+
+      text-transform:uppercase;
+    }
+
+
+    .roxan-hero h1{
+
+      font-family:var(--serif);
+
+      font-size:clamp(60px,8vw,108px);
+
+      line-height:.84;
+
+      letter-spacing:-.055em;
+
+      font-weight:400;
+
+      margin-bottom:34px;
+    }
+
+
+    .roxan-hero h1 span{
+
+      display:block;
+
+      margin-top:28px;
+
+      color:var(--steel);
+
+      font-family:var(--sans);
+
+      font-size:.36em;
+
+      font-weight:600;
+
+      line-height:1.3;
+
+      letter-spacing:.015em;
+    }
+
+
+    .roxan-intro{
+
+      max-width:580px;
+
+      color:var(--ink-2);
+
+      font-size:17px;
+
+      line-height:1.8;
+    }
+
+
+    /* =====================================================
+       RETRATO
+    ===================================================== */
+
+    .roxan-portrait{
+
+      position:relative;
+
+      width:100%;
+
+      max-width:450px;
+
+      justify-self:end;
+
+      aspect-ratio:4/5;
+
+      overflow:hidden;
+
+      background:var(--bg-soft);
+    }
+
+
+    .roxan-portrait::before{
+
+      content:"";
+
+      position:absolute;
+
+      inset:14px;
+
+      border:1px solid rgba(241,241,239,.2);
+
+      z-index:2;
+
+      pointer-events:none;
+    }
+
+
+    .roxan-portrait img{
+
+      width:100%;
+      height:100%;
+
+      object-fit:cover;
+
+      display:block;
+
+      filter:
+        grayscale(.9)
+        contrast(1.08)
+        brightness(.8);
+
+      transition:
+        transform 1s var(--ease),
+        filter .8s var(--ease);
+    }
+
+
+    .roxan-portrait:hover img{
+
+      transform:scale(1.035);
+
+      filter:
+        grayscale(.55)
+        contrast(1.06)
+        brightness(.88);
+    }
+
+
+    .portrait-number{
+
+      position:absolute;
+
+      z-index:3;
+
+      bottom:24px;
+      left:25px;
+
+      color:rgba(241,241,239,.7);
+
+      font-family:var(--serif);
+
+      font-size:14px;
+
+      font-style:italic;
+    }
+
+
+    /* =====================================================
+       FRASE CENTRAL
+    ===================================================== */
+
+    .roxan-statement{
+
+      padding:110px 0;
+
+      border-top:1px solid var(--line);
+
+      border-bottom:1px solid var(--line);
+    }
+
+
+    .statement-wrap{
+
+      width:min(1000px,calc(100% - 48px));
+
+      margin:auto;
+    }
+
+
+    .statement-label{
+
+      margin-bottom:30px;
+
+      color:var(--steel);
+
+      font-size:9px;
+
+      font-weight:700;
+
+      letter-spacing:.18em;
+
+      text-transform:uppercase;
+    }
+
+
+    .statement{
+
+      font-family:var(--serif);
+
+      font-size:clamp(34px,5vw,64px);
+
+      line-height:1.05;
+
+      letter-spacing:-.035em;
+    }
+
+
+    .statement em{
+
+      color:var(--steel);
+
+      font-style:italic;
+    }
+
+
+    /* =====================================================
+       PERFIL
+    ===================================================== */
+
+    .roxan-profile{
+
+      padding:120px 0;
+    }
+
+
+    .profile-wrap{
+
+      width:min(1180px,calc(100% - 48px));
+
+      margin:auto;
+
+      display:grid;
+
+      grid-template-columns:.65fr 1fr;
+
+      gap:110px;
+    }
+
+
+    .profile-title{
+
+      position:sticky;
+
+      top:130px;
+
+      align-self:start;
+    }
+
+
+    .profile-title .eyebrow{
+
+      display:block;
+
+      margin-bottom:20px;
+
+      color:var(--steel);
+
+      font-size:10px;
+
+      font-weight:700;
+
+      letter-spacing:.18em;
+
+      text-transform:uppercase;
+    }
+
+
+    .profile-title h2{
+
+      font-family:var(--serif);
+
+      font-size:clamp(42px,5vw,65px);
+
+      line-height:.95;
+
+      font-weight:400;
+
+      letter-spacing:-.04em;
+    }
+
+
+    .profile-content{
+
+      color:var(--ink-2);
+
+      font-size:16px;
+
+      line-height:1.85;
+    }
+
+
+    .profile-content p{
+
+      margin-bottom:28px;
+    }
+
+
+    .profile-content strong{
+
+      color:var(--ink);
+
+      font-weight:500;
+    }
+
+
+    /* =====================================================
+       HABILIDADES
+    ===================================================== */
+
+    .roxan-skills{
+
+      padding:110px 0;
+
+      background:var(--bg-soft);
+
+      border-top:1px solid var(--line);
+
+      border-bottom:1px solid var(--line);
+    }
+
+
+    .skills-wrap{
+
+      width:min(1180px,calc(100% - 48px));
+
+      margin:auto;
+    }
+
+
+    .skills-head{
+
+      margin-bottom:55px;
+    }
+
+
+    .skills-head .eyebrow{
+
+      color:var(--steel);
+
+      font-size:10px;
+
+      font-weight:700;
+
+      letter-spacing:.18em;
+
+      text-transform:uppercase;
+    }
+
+
+    .skills-head h2{
+
+      margin-top:18px;
+
+      font-family:var(--serif);
+
+      font-size:clamp(42px,5vw,68px);
+
+      line-height:.95;
+
+      font-weight:400;
+
+      letter-spacing:-.04em;
+    }
+
+
+    .skills-grid{
+
+      display:grid;
+
+      grid-template-columns:repeat(3,1fr);
+
+      border-top:1px solid var(--line);
+
+      border-left:1px solid var(--line);
+    }
+
+
+    .skill{
+
+      min-height:220px;
+
+      padding:30px;
+
+      border-right:1px solid var(--line);
+
+      border-bottom:1px solid var(--line);
+
+      transition:background .4s var(--ease);
+    }
+
+
+    .skill:hover{
+
+      background:rgba(255,255,255,.025);
+    }
+
+
+    .skill-number{
+
+      display:block;
+
+      margin-bottom:45px;
+
+      color:var(--steel);
+
+      font-family:var(--serif);
+
+      font-size:14px;
+
+      font-style:italic;
+    }
+
+
+    .skill h3{
+
+      margin-bottom:13px;
+
+      font-family:var(--serif);
+
+      font-size:24px;
+
+      font-weight:400;
+    }
+
+
+    .skill p{
+
+      color:var(--ink-2);
+
+      font-size:13px;
+
+      line-height:1.7;
+    }
+
+
+    /* =====================================================
+       APORTE DENTRO DE NOIA
+    ===================================================== */
+
+    .roxan-contribution{
+
+      padding:120px 0;
+    }
+
+
+    .contribution-wrap{
+
+      width:min(1000px,calc(100% - 48px));
+
+      margin:auto;
+    }
+
+
+    .contribution-head{
+
+      margin-bottom:55px;
+    }
+
+
+    .contribution-head .eyebrow{
+
+      color:var(--steel);
+
+      font-size:10px;
+
+      font-weight:700;
+
+      letter-spacing:.18em;
+
+      text-transform:uppercase;
+    }
+
+
+    .contribution-head h2{
+
+      margin-top:20px;
+
+      font-family:var(--serif);
+
+      font-size:clamp(42px,5vw,70px);
+
+      font-weight:400;
+
+      line-height:.95;
+
+      letter-spacing:-.04em;
+    }
+
+
+    .contribution-list{
+
+      border-top:1px solid var(--line);
+    }
+
+
+    .contribution-item{
+
+      display:grid;
+
+      grid-template-columns:70px 1fr;
+
+      gap:25px;
+
+      padding:30px 0;
+
+      border-bottom:1px solid var(--line);
+
+      align-items:start;
+    }
+
+
+    .contribution-item .num{
+
+      color:var(--steel);
+
+      font-family:var(--serif);
+
+      font-style:italic;
+    }
+
+
+    .contribution-item h3{
+
+      margin-bottom:8px;
+
+      font-family:var(--serif);
+
+      font-size:25px;
+
+      font-weight:400;
+    }
+
+
+    .contribution-item p{
+
+      max-width:680px;
+
+      color:var(--ink-2);
+
+      font-size:14px;
+
+      line-height:1.75;
+    }
+
+
+    /* =====================================================
+       NAVEGACIÓN
+    ===================================================== */
+
+    .roxan-next{
+
+      padding:70px 0;
+
+      border-top:1px solid var(--line);
+    }
+
+
+    .next-wrap{
+
+      width:min(1180px,calc(100% - 48px));
+
+      margin:auto;
+
+      display:flex;
+
+      justify-content:space-between;
+
+      align-items:center;
+    }
+
+
+    .next-link{
+
+      display:flex;
+
+      flex-direction:column;
+
+      gap:8px;
+    }
+
+
+    .next-label{
+
+      color:var(--steel);
+
+      font-size:9px;
+
+      font-weight:700;
+
+      letter-spacing:.15em;
+
+      text-transform:uppercase;
+    }
+
+
+    .next-name{
+
+      font-family:var(--serif);
+
+      font-size:25px;
+
+      transition:transform .3s var(--ease);
+    }
+
+
+    .next-link:hover .next-name{
+
+      transform:translateX(7px);
+    }
+
+
+    .next-center{
+
+      color:var(--ink-2);
+
+      font-size:9px;
+
+      letter-spacing:.15em;
+
+      text-transform:uppercase;
+    }
+
+
+    /* =====================================================
+       RESPONSIVE
+    ===================================================== */
+
+    @media(max-width:900px){
+
+      .roxan-hero{
+
+        grid-template-columns:1fr;
+
+        gap:55px;
+
+        padding-top:140px;
+      }
+
+
+      .roxan-portrait{
+
+        justify-self:start;
+
+        max-width:500px;
+      }
+
+
+      .profile-wrap{
+
+        grid-template-columns:1fr;
+
+        gap:55px;
+      }
+
+
+      .profile-title{
+
+        position:static;
+      }
+
+
+      .skills-grid{
+
+        grid-template-columns:1fr 1fr;
+      }
+
+    }
+
+
+    @media(max-width:600px){
+
+      .roxan-nav{
+
+        width:calc(100% - 32px);
+      }
+
+
+      .roxan-hero,
+      .profile-wrap,
+      .skills-wrap,
+      .next-wrap{
+
+        width:calc(100% - 32px);
+      }
+
+
+      .roxan-hero{
+
+        padding-top:120px;
+      }
+
+
+      .roxan-hero h1{
+
+        font-size:60px;
+      }
+
+
+      .roxan-statement,
+      .roxan-profile,
+      .roxan-skills,
+      .roxan-contribution{
+
+        padding:80px 0;
+      }
+
+
+      .skills-grid{
+
+        grid-template-columns:1fr;
+      }
+
+
+      .skill{
+
+        min-height:auto;
+      }
+
+
+      .contribution-item{
+
+        grid-template-columns:40px 1fr;
+      }
+
+
+      .next-center{
+
+        display:none;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="roxan-header">
+
+  <div class="roxan-nav">
+
+    <a href="index.html" class="back-link">
+      <span>←</span>
+      Volver a NOIA
+    </a>
+
+    <a href="index.html" class="roxan-brand">
+      NOIA <b>Group</b>
+    </a>
+
+  </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<main>
+
+<section class="roxan-hero">
+
+  <div>
+
+    <span class="roxan-kicker">
+      Integrante · NOIA Group
+    </span>
+
+
+    <h1>
+
+      Roxan
+      Lazarte
+
+      <span>
+        Comunicación · Voz · Expresión · Presencia
+      </span>
+
+    </h1>
+
+
+    <p class="roxan-intro">
+
+      Una voz no solo transmite palabras.
+      Puede comunicar seguridad, emoción, identidad
+      y la historia que existe detrás de cada persona.
+
+    </p>
+
+  </div>
+
+
+
+  <div class="roxan-portrait">
+
+    <!-- CAMBIA ESTA RUTA POR LA FOTO DE ROXAN -->
+
+    <img
+      src="../assets/img/roxan-lazarte.jpg"
+      alt="Roxan Lazarte"
+    >
+
+    <span class="portrait-number">
+      NOIA / 03
+    </span>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FRASE
+===================================================== -->
+
+<section class="roxan-statement">
+
+  <div class="statement-wrap">
+
+    <div class="statement-label">
+      Una mirada dentro de NOIA
+    </div>
+
+
+    <div class="statement">
+
+      “Tu voz es tu marca.
+      <em>Úsala bien.</em>”
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PERFIL
+===================================================== -->
+
+<section class="roxan-profile">
+
+  <div class="profile-wrap">
+
+
+    <div class="profile-title">
+
+      <span class="eyebrow">
+        Perfil
+      </span>
+
+
+      <h2>
+
+        Una voz<br>
+        que tiene<br>
+        algo que decir.
+
+      </h2>
+
+    </div>
+
+
+
+    <div class="profile-content">
+
+      <p>
+
+        <strong>Roxan Lazarte</strong> es comunicadora y
+        especialista en voz y expresión, con formación y
+        desarrollo constante en el campo de la comunicación,
+        la expresión vocal y la comunicación asertiva.
+
+      </p>
+
+
+      <p>
+
+        Su trabajo parte de una pregunta esencial:
+
+        <strong>¿qué puede transmitir tu voz cuando
+        realmente aprendes a utilizarla?</strong>
+
+      </p>
+
+
+      <p>
+
+        Desde esta perspectiva, acompaña a las personas
+        a descubrir su propia identidad vocal, trabajando
+        herramientas que permiten desarrollar una voz
+        más segura, auténtica y expresiva.
+
+      </p>
+
+
+      <p>
+
+        Su metodología incorpora técnicas de
+        <strong>calentamiento, respiración, vocalización,
+        dicción, ritmo, intención y armonía</strong>,
+        buscando que la voz no solamente se escuche,
+        sino que comunique, emocione y cuente una historia.
+
+      </p>
+
+
+      <p>
+
+        Su propósito es ayudar a cada persona a encontrar
+        una voz auténtica y segura, capaz de expresar sus
+        ideas con claridad, conectar con los demás y
+        transmitir aquello que verdaderamente quiere decir.
+
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     HABILIDADES
+===================================================== -->
+
+<section class="roxan-skills">
+
+  <div class="skills-wrap">
+
+
+    <div class="skills-head">
+
+      <span class="eyebrow">
+        Áreas de especialización
+      </span>
+
+
+      <h2>
+
+        Lo que aporta<br>
+        al proceso.
+
+      </h2>
+
+    </div>
+
+
+
+    <div class="skills-grid">
+
+
+      <div class="skill">
+
+        <span class="skill-number">
+          01
+        </span>
+
+        <h3>
+          Voz
+        </h3>
+
+        <p>
+
+          Desarrollo de la voz como herramienta de
+          comunicación, identidad y presencia personal.
+
+        </p>
+
+      </div>
+
+
+
+      <div class="skill">
+
+        <span class="skill-number">
+          02
+        </span>
+
+        <h3>
+          Respiración
+        </h3>
+
+        <p>
+
+          Ejercicios orientados a mejorar el control
+          respiratorio y preparar la voz para una
+          comunicación más segura.
+
+        </p>
+
+      </div>
+
+
+
+      <div class="skill">
+
+        <span class="skill-number">
+          03
+        </span>
+
+        <h3>
+          Vocalización
+        </h3>
+
+        <p>
+
+          Prácticas para desarrollar una emisión vocal
+          más clara, consciente y expresiva.
+
+        </p>
+
+      </div>
+
+
+
+      <div class="skill">
+
+        <span class="skill-number">
+          04
+        </span>
+
+        <h3>
+          Dicción
+        </h3>
+
+        <p>
+
+          Trabajo enfocado en mejorar la claridad de las
+          palabras y la precisión al momento de comunicar.
+
+        </p>
+
+      </div>
+
+
+
+      <div class="skill">
+
+        <span class="skill-number">
+          05
+        </span>
+
+        <h3>
+          Ritmo e intención
+        </h3>
+
+        <p>
+
+          Desarrollo de recursos vocales para transmitir
+          intención, emoción y significado en cada mensaje.
+
+        </p>
+
+      </div>
+
+
+
+      <div class="skill">
+
+        <span class="skill-number">
+          06
+        </span>
+
+        <h3>
+          Comunicación asertiva
+        </h3>
+
+        <p>
+
+          Herramientas para expresar ideas con mayor
+          seguridad, claridad y conexión con los demás.
+
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     APORTE DENTRO DE NOIA
+===================================================== -->
+
+<section class="roxan-contribution">
+
+  <div class="contribution-wrap">
+
+
+    <div class="contribution-head">
+
+      <span class="eyebrow">
+        Su aporte dentro de NOIA
+      </span>
+
+
+      <h2>
+
+        Que tu voz<br>
+        diga quién eres.
+
+      </h2>
+
+    </div>
+
+
+
+    <div class="contribution-list">
+
+
+      <div class="contribution-item">
+
+        <span class="num">
+          01
+        </span>
+
+
+        <div>
+
+          <h3>
+            Descubrir la identidad vocal
+          </h3>
+
+          <p>
+
+            Acompaña a cada persona en el descubrimiento
+            de las características propias de su voz y
+            de las posibilidades que puede desarrollar
+            a través de ella.
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="contribution-item">
+
+        <span class="num">
+          02
+        </span>
+
+
+        <div>
+
+          <h3>
+            Comunicar con seguridad
+          </h3>
+
+          <p>
+
+            El trabajo vocal busca que la persona pueda
+            expresarse con mayor claridad, confianza
+            y seguridad frente a los demás.
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="contribution-item">
+
+        <span class="num">
+          03
+        </span>
+
+
+        <div>
+
+          <h3>
+            Conectar a través de la voz
+          </h3>
+
+          <p>
+
+            La voz se convierte en una herramienta para
+            generar conexión, transmitir emociones y
+            hacer que un mensaje tenga mayor presencia.
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="contribution-item">
+
+        <span class="num">
+          04
+        </span>
+
+
+        <div>
+
+          <h3>
+            Convertir palabras en presencia
+          </h3>
+
+          <p>
+
+            Porque comunicar no consiste únicamente
+            en hablar. Consiste en lograr que aquello
+            que dices tenga intención, identidad y
+            llegue realmente a quien te escucha.
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     NAVEGACIÓN ENTRE INTEGRANTES
+===================================================== -->
+
+<section class="roxan-next">
+
+  <div class="next-wrap">
+
+
+    <a href="marco.html" class="next-link">
+
+      <span class="next-label">
+        Integrante anterior
+      </span>
+
+      <span class="next-name">
+        ← Marco de la Cruz
+      </span>
+
+    </a>
+
+
+
+    <span class="next-center">
+      NOIA GROUP · 03 / 05
+    </span>
+
+
+
+    <a href="integrante-04.html" class="next-link">
+
+      <span class="next-label">
+        Siguiente integrante
+      </span>
+
+      <span class="next-name">
+        Ver perfil →
+      </span>
+
+    </a>
+
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+</body>
+</html>

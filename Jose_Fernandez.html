@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>José Fernandez · NOIA Group</title>
+
+  <style>
+
+    /* =====================================================
+       VARIABLES
+    ===================================================== */
+
+    :root{
+      --bg:#0d0e10;
+      --bg-soft:#131519;
+      --ink:#f1f1ef;
+      --ink-2:#a8abb0;
+      --steel:#8c9bab;
+      --line:rgba(241,241,239,.12);
+      --line-soft:rgba(241,241,239,.07);
+
+      --serif:Georgia,"Times New Roman",serif;
+      --sans:Arial,Helvetica,sans-serif;
+
+      --ease:cubic-bezier(.22,.61,.36,1);
+    }
+
+
+    /* =====================================================
+       RESET
+    ===================================================== */
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:var(--bg);
+      color:var(--ink);
+      font-family:var(--sans);
+      -webkit-font-smoothing:antialiased;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+
+    /* =====================================================
+       HEADER
+    ===================================================== */
+
+    .jose-header{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      z-index:100;
+
+      padding:22px 0;
+
+      background:rgba(13,14,16,.72);
+      backdrop-filter:blur(14px);
+
+      border-bottom:1px solid var(--line-soft);
+    }
+
+    .jose-nav{
+      width:min(1180px,calc(100% - 48px));
+      margin:auto;
+
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .jose-brand{
+      display:flex;
+      align-items:center;
+      gap:9px;
+
+      font-size:14px;
+      font-weight:700;
+      letter-spacing:.08em;
+    }
+
+    .jose-brand b{
+      color:var(--steel);
+      font-weight:400;
+    }
+
+    .back-link{
+      display:flex;
+      align-items:center;
+      gap:10px;
+
+      color:var(--ink-2);
+
+      font-size:10px;
+      font-weight:700;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+
+      transition:color .3s ease;
+    }
+
+    .back-link span{
+      transition:transform .3s var(--ease);
+    }
+
+    .back-link:hover{
+      color:var(--ink);
+    }
+
+    .back-link:hover span{
+      transform:translateX(-5px);
+    }
+
+
+    /* =====================================================
+       HERO
+    ===================================================== */
+
+    .jose-hero{
+      min-height:100vh;
+
+      width:min(1180px,calc(100% - 48px));
+      margin:auto;
+
+      display:grid;
+      grid-template-columns:1fr .8fr;
+      gap:90px;
+
+      align-items:center;
+
+      padding:150px 0 100px;
+    }
+
+
+    /* TEXTO */
+
+    .jose-kicker{
+      display:block;
+
+      margin-bottom:25px;
+
+      color:var(--steel);
+
+      font-size:10px;
+      font-weight:700;
+      letter-spacing:.2em;
+      text-transform:uppercase;
+    }
+
+    .jose-hero h1{
+      font-family:var(--serif);
+
+      font-size:clamp(64px,8vw,112px);
+
+      line-height:.84;
+      letter-spacing:-.055em;
+
+      font-weight:400;
+
+      margin-bottom:32px;
+    }
+
+    .jose-hero h1 span{
+      display:block;
+
+      color:var(--steel);
+
+      font-size:.42em;
+
+      font-family:var(--sans);
+
+      font-weight:600;
+
+      line-height:1.2;
+
+      letter-spacing:.02em;
+
+      margin-top:25px;
+    }
+
+    .jose-intro{
+      max-width:570px;
+
+      color:var(--ink-2);
+
+      font-size:17px;
+      line-height:1.8;
+    }
+
+
+    /* =====================================================
+       FOTO
+    ===================================================== */
+
+    .jose-portrait{
+      position:relative;
+
+      width:100%;
+      max-width:450px;
+
+      justify-self:end;
+
+      aspect-ratio:4/5;
+
+      overflow:hidden;
+
+      background:var(--bg-soft);
+    }
+
+    .jose-portrait::before{
+      content:"";
+
+      position:absolute;
+      inset:14px;
+
+      border:1px solid rgba(241,241,239,.2);
+
+      z-index:2;
+
+      pointer-events:none;
+    }
+
+    .jose-portrait img{
+      width:100%;
+      height:100%;
+
+      object-fit:cover;
+
+      display:block;
+
+      filter:
+        grayscale(.85)
+        contrast(1.08)
+        brightness(.82);
+
+      transition:
+        transform 1s var(--ease),
+        filter .8s var(--ease);
+    }
+
+    .jose-portrait:hover img{
+      transform:scale(1.035);
+
+      filter:
+        grayscale(.55)
+        contrast(1.08)
+        brightness(.88);
+    }
+
+    .portrait-number{
+      position:absolute;
+
+      z-index:3;
+
+      bottom:24px;
+      left:25px;
+
+      font-family:var(--serif);
+
+      font-size:14px;
+      font-style:italic;
+
+      color:rgba(241,241,239,.7);
+    }
+
+
+    /* =====================================================
+       FRASE
+    ===================================================== */
+
+    .jose-statement{
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+
+      padding:110px 0;
+    }
+
+    .statement-wrap{
+      width:min(1000px,calc(100% - 48px));
+      margin:auto;
+    }
+
+    .statement-label{
+      color:var(--steel);
+
+      font-size:9px;
+      font-weight:700;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+
+      margin-bottom:30px;
+    }
+
+    .statement{
+      font-family:var(--serif);
+
+      font-size:clamp(34px,5vw,64px);
+
+      line-height:1.05;
+
+      letter-spacing:-.035em;
+    }
+
+    .statement em{
+      color:var(--steel);
+      font-style:italic;
+    }
+
+
+    /* =====================================================
+       PERFIL
+    ===================================================== */
+
+    .jose-profile{
+      padding:120px 0;
+    }
+
+    .profile-wrap{
+      width:min(1180px,calc(100% - 48px));
+      margin:auto;
+
+      display:grid;
+      grid-template-columns:.65fr 1fr;
+
+      gap:110px;
+    }
+
+    .profile-title{
+      position:sticky;
+      top:130px;
+      align-self:start;
+    }
+
+    .profile-title .eyebrow{
+      display:block;
+
+      color:var(--steel);
+
+      font-size:10px;
+      font-weight:700;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+
+      margin-bottom:20px;
+    }
+
+    .profile-title h2{
+      font-family:var(--serif);
+
+      font-size:clamp(42px,5vw,65px);
+
+      line-height:.95;
+
+      font-weight:400;
+
+      letter-spacing:-.04em;
+    }
+
+    .profile-content{
+      color:var(--ink-2);
+
+      font-size:16px;
+      line-height:1.85;
+    }
+
+    .profile-content p{
+      margin-bottom:28px;
+    }
+
+    .profile-content strong{
+      color:var(--ink);
+      font-weight:500;
+    }
+
+
+    /* =====================================================
+       HABILIDADES
+    ===================================================== */
+
+    .jose-skills{
+      background:var(--bg-soft);
+
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+
+      padding:110px 0;
+    }
+
+    .skills-wrap{
+      width:min(1180px,calc(100% - 48px));
+      margin:auto;
+    }
+
+    .skills-head{
+      margin-bottom:55px;
+    }
+
+    .skills-head .eyebrow{
+      color:var(--steel);
+
+      font-size:10px;
+      font-weight:700;
+
+      letter-spacing:.18em;
+      text-transform:uppercase;
+    }
+
+    .skills-head h2{
+      margin-top:18px;
+
+      font-family:var(--serif);
+
+      font-size:clamp(42px,5vw,68px);
+
+      line-height:.95;
+
+      font-weight:400;
+
+      letter-spacing:-.04em;
+    }
+
+    .skills-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+
+      border-top:1px solid var(--line);
+      border-left:1px solid var(--line);
+    }
+
+    .skill{
+      min-height:220px;
+
+      padding:30px;
+
+      border-right:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+
+      transition:
+        background .4s var(--ease);
+    }
+
+    .skill:hover{
+      background:rgba(255,255,255,.025);
+    }
+
+    .skill-number{
+      display:block;
+
+      color:var(--steel);
+
+      font-family:var(--serif);
+
+      font-size:14px;
+      font-style:italic;
+
+      margin-bottom:45px;
+    }
+
+    .skill h3{
+      font-family:var(--serif);
+
+      font-size:24px;
+
+      font-weight:400;
+
+      margin-bottom:13px;
+    }
+
+    .skill p{
+      color:var(--ink-2);
+
+      font-size:13px;
+
+      line-height:1.7;
+    }
+
+
+    /* =====================================================
+       APORTE A NOIA
+    ===================================================== */
+
+    .jose-contribution{
+      padding:120px 0;
+    }
+
+    .contribution-wrap{
+      width:min(1000px,calc(100% - 48px));
+      margin:auto;
+    }
+
+    .contribution-head{
+      margin-bottom:55px;
+    }
+
+    .contribution-head .eyebrow{
+      color:var(--steel);
+
+      font-size:10px;
+      font-weight:700;
+
+      letter-spacing:.18em;
+      text-transform:uppercase;
+    }
+
+    .contribution-head h2{
+      margin-top:20px;
+
+      font-family:var(--serif);
+
+      font-size:clamp(42px,5vw,70px);
+
+      font-weight:400;
+
+      line-height:.95;
+
+      letter-spacing:-.04em;
+    }
+
+    .contribution-list{
+      border-top:1px solid var(--line);
+    }
+
+    .contribution-item{
+      display:grid;
+
+      grid-template-columns:70px 1fr;
+
+      gap:25px;
+
+      padding:30px 0;
+
+      border-bottom:1px solid var(--line);
+
+      align-items:start;
+    }
+
+    .contribution-item .num{
+      color:var(--steel);
+
+      font-family:var(--serif);
+
+      font-style:italic;
+    }
+
+    .contribution-item h3{
+      font-family:var(--serif);
+
+      font-size:25px;
+
+      font-weight:400;
+
+      margin-bottom:8px;
+    }
+
+    .contribution-item p{
+      max-width:680px;
+
+      color:var(--ink-2);
+
+      font-size:14px;
+
+      line-height:1.75;
+    }
+
+
+    /* =====================================================
+       NAVEGACIÓN ENTRE INTEGRANTES
+    ===================================================== */
+
+    .jose-next{
+      border-top:1px solid var(--line);
+
+      padding:70px 0;
+    }
+
+    .next-wrap{
+      width:min(1180px,calc(100% - 48px));
+      margin:auto;
+
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .next-link{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+
+    .next-label{
+      color:var(--steel);
+
+      font-size:9px;
+      font-weight:700;
+
+      letter-spacing:.15em;
+      text-transform:uppercase;
+    }
+
+    .next-name{
+      font-family:var(--serif);
+
+      font-size:25px;
+
+      transition:transform .3s var(--ease);
+    }
+
+    .next-link:hover .next-name{
+      transform:translateX(7px);
+    }
+
+    .next-center{
+      font-size:9px;
+
+      color:var(--ink-2);
+
+      letter-spacing:.15em;
+
+      text-transform:uppercase;
+    }
+
+
+    /* =====================================================
+       RESPONSIVE
+    ===================================================== */
+
+    @media(max-width:900px){
+
+      .jose-hero{
+        grid-template-columns:1fr;
+
+        gap:55px;
+
+        padding-top:140px;
+      }
+
+      .jose-portrait{
+        justify-self:start;
+
+        max-width:500px;
+      }
+
+      .profile-wrap{
+        grid-template-columns:1fr;
+
+        gap:55px;
+      }
+
+      .profile-title{
+        position:static;
+      }
+
+      .skills-grid{
+        grid-template-columns:1fr 1fr;
+      }
+
+    }
+
+
+    @media(max-width:600px){
+
+      .jose-header{
+        padding:18px 0;
+      }
+
+      .jose-nav{
+        width:calc(100% - 32px);
+      }
+
+      .jose-hero,
+      .profile-wrap,
+      .skills-wrap,
+      .next-wrap{
+        width:calc(100% - 32px);
+      }
+
+      .jose-hero{
+        padding-top:120px;
+      }
+
+      .jose-hero h1{
+        font-size:64px;
+      }
+
+      .jose-statement,
+      .jose-profile,
+      .jose-skills,
+      .jose-contribution{
+        padding:80px 0;
+      }
+
+      .skills-grid{
+        grid-template-columns:1fr;
+      }
+
+      .skill{
+        min-height:auto;
+      }
+
+      .contribution-item{
+        grid-template-columns:40px 1fr;
+      }
+
+      .next-wrap{
+        align-items:flex-start;
+      }
+
+      .next-center{
+        display:none;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="jose-header">
+
+  <div class="jose-nav">
+
+    <a href="index.html" class="back-link">
+      <span>←</span>
+      Volver a NOIA
+    </a>
+
+    <a href="index.html" class="jose-brand">
+      NOIA <b>Group</b>
+    </a>
+
+  </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<main>
+
+<section class="jose-hero">
+
+  <div class="jose-hero-copy">
+
+    <span class="jose-kicker">
+      Integrante · NOIA Group
+    </span>
+
+    <h1>
+      José
+      Fernandez
+
+      <span>
+        Tecnología · Inteligencia Artificial · Estrategia Digital
+      </span>
+    </h1>
+
+    <p class="jose-intro">
+      Tecnología, inteligencia artificial y estrategia digital
+      al servicio de una idea: convertir el potencial de una persona
+      en una presencia capaz de llegar más lejos.
+    </p>
+
+  </div>
+
+
+  <div class="jose-portrait">
+
+    <!-- CAMBIA ESTA RUTA POR TU FOTO -->
+
+    <img
+      src="../assets/img/jose-fernandez.jpg"
+      alt="José Fernandez"
+    >
+
+    <span class="portrait-number">
+      NOIA / 01
+    </span>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FRASE
+===================================================== -->
+
+<section class="jose-statement">
+
+  <div class="statement-wrap">
+
+    <div class="statement-label">
+      Una mirada dentro de NOIA
+    </div>
+
+    <div class="statement">
+
+      “La tecnología organiza.
+      <em>La estrategia proyecta.</em>
+      La comunicación genera impacto.”
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PERFIL
+===================================================== -->
+
+<section class="jose-profile">
+
+  <div class="profile-wrap">
+
+    <div class="profile-title">
+
+      <span class="eyebrow">
+        Perfil
+      </span>
+
+      <h2>
+        Convertir<br>
+        ideas en<br>
+        sistemas.
+      </h2>
+
+    </div>
+
+
+    <div class="profile-content">
+
+      <p>
+        <strong>José Fernandez</strong> integra tecnología,
+        inteligencia artificial y comunicación estratégica para
+        transformar ideas en sistemas capaces de generar impacto.
+      </p>
+
+      <p>
+        Dentro de <strong>NOIA Group</strong>, acompaña al equipo
+        en la sistematización y proyección digital de la metodología,
+        desarrollando estructuras que permiten organizar contenidos,
+        fortalecer la presencia web y convertir las redes sociales
+        en herramientas estratégicas de comunicación y posicionamiento.
+      </p>
+
+      <p>
+        Su capacidad para traducir conceptos e ideas en herramientas
+        prácticas le permite compartir estos conocimientos con el
+        equipo y ayudar a que cada profesional pueda potenciar su
+        presencia y comunicar mejor el valor de lo que hace.
+      </p>
+
+      <p>
+        Su propósito dentro de NOIA es conectar
+        <strong>tecnología, estrategia y comunicación</strong>
+        para que el trabajo de cada persona pueda llegar más lejos.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     HABILIDADES
+===================================================== -->
+
+<section class="jose-skills">
+
+  <div class="skills-wrap">
+
+    <div class="skills-head">
+
+      <span class="eyebrow">
+        Áreas de especialización
+      </span>
+
+      <h2>
+        Lo que aporta<br>
+        a cada proceso.
+      </h2>
+
+    </div>
+
+
+    <div class="skills-grid">
+
+
+      <div class="skill">
+
+        <span class="skill-number">
+          01
+        </span>
+
+        <h3>
+          Inteligencia Artificial
+        </h3>
+
+        <p>
+          Aplicación estratégica de herramientas de IA para
+          optimizar procesos, desarrollar contenidos y convertir
+          ideas en soluciones prácticas.
+        </p>
+
+      </div>
+
+
+      <div class="skill">
+
+        <span class="skill-number">
+          02
+        </span>
+
+        <h3>
+          Estrategia Digital
+        </h3>
+
+        <p>
+          Diseño de estructuras digitales orientadas a mejorar
+          la presencia, comunicación y posicionamiento de una
+          marca personal.
+        </p>
+
+      </div>
+
+
+      <div class="skill">
+
+        <span class="skill-number">
+          03
+        </span>
+
+        <h3>
+          Desarrollo Web
+        </h3>
+
+        <p>
+          Construcción de experiencias web que organizan,
+          presentan y proyectan el valor de una persona
+          de manera profesional.
+        </p>
+
+      </div>
+
+
+      <div class="skill">
+
+        <span class="skill-number">
+          04
+        </span>
+
+        <h3>
+          Sistematización
+        </h3>
+
+        <p>
+          Transformación de procesos e ideas en estructuras
+          claras, replicables y fáciles de implementar.
+        </p>
+
+      </div>
+
+
+      <div class="skill">
+
+        <span class="skill-number">
+          05
+        </span>
+
+        <h3>
+          Comunicación Digital
+        </h3>
+
+        <p>
+          Integración de contenido, narrativa y herramientas
+          digitales para comunicar con mayor claridad y propósito.
+        </p>
+
+      </div>
+
+
+      <div class="skill">
+
+        <span class="skill-number">
+          06
+        </span>
+
+        <h3>
+          Pensamiento Estratégico
+        </h3>
+
+        <p>
+          Capacidad para conectar objetivos, tecnología y
+          comunicación en soluciones enfocadas en resultados.
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     APORTE A NOIA
+===================================================== -->
+
+<section class="jose-contribution">
+
+  <div class="contribution-wrap">
+
+    <div class="contribution-head">
+
+      <span class="eyebrow">
+        Su aporte dentro de NOIA
+      </span>
+
+      <h2>
+        Tecnología que<br>
+        potencia personas.
+      </h2>
+
+    </div>
+
+
+    <div class="contribution-list">
+
+
+      <div class="contribution-item">
+
+        <span class="num">01</span>
+
+        <div>
+
+          <h3>
+            Sistematizar el conocimiento
+          </h3>
+
+          <p>
+            Ayuda a convertir la experiencia y metodología de
+            NOIA en estructuras digitales claras que puedan ser
+            utilizadas y comprendidas por el equipo.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="contribution-item">
+
+        <span class="num">02</span>
+
+        <div>
+
+          <h3>
+            Potenciar la presencia digital
+          </h3>
+
+          <p>
+            Desarrolla herramientas y estructuras web que permiten
+            presentar mejor el trabajo, la identidad y el valor
+            diferencial de cada profesional.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="contribution-item">
+
+        <span class="num">03</span>
+
+        <div>
+
+          <h3>
+            Acercar la inteligencia artificial
+          </h3>
+
+          <p>
+            Explora nuevas formas de utilizar la IA como una
+            herramienta práctica para crear, organizar, comunicar
+            y optimizar procesos.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="contribution-item">
+
+        <span class="num">04</span>
+
+        <div>
+
+          <h3>
+            Conectar estrategia y ejecución
+          </h3>
+
+          <p>
+            Su enfoque busca que una buena idea no se quede
+            solamente en una intención, sino que pueda convertirse
+            en una herramienta, sistema o acción concreta.
+          </p>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     NAVEGACIÓN ENTRE PERFILES
+===================================================== -->
+
+<section class="jose-next">
+
+  <div class="next-wrap">
+
+    <a href="index.html" class="next-link">
+
+      <span class="next-label">
+        Directorio
+      </span>
+
+      <span class="next-name">
+        ← Manuel Carda
+      </span>
+
+    </a>
+
+
+    <span class="next-center">
+      NOIA GROUP · 05 / 05
+    </span>
+
+
+    <a href="Lucia_Oporto.html" class="next-link">
+
+      <span class="next-label">
+        Siguiente integrante
+      </span>
+
+      <span class="next-name">
+        Ver perfil →
+      </span>
+
+    </a>
+
+  </div>
+
+</section>
+
+
+</main>
+
+</body>
+</html>

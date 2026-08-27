@@ -1,0 +1,1457 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Manuel Cardozo · NOIA Group</title>
+
+  <style>
+
+    /* =====================================================
+       VARIABLES
+    ===================================================== */
+
+    :root{
+      --bg:#0d0e10;
+      --bg-soft:#131519;
+
+      --ink:#f1f1ef;
+      --ink-2:#a8abb0;
+      --steel:#8c9bab;
+
+      --line:rgba(241,241,239,.12);
+      --line-soft:rgba(241,241,239,.07);
+
+      --serif:Georgia,"Times New Roman",serif;
+      --sans:Arial,Helvetica,sans-serif;
+
+      --ease:cubic-bezier(.22,.61,.36,1);
+    }
+
+
+    /* =====================================================
+       RESET
+    ===================================================== */
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:var(--bg);
+      color:var(--ink);
+      font-family:var(--sans);
+      -webkit-font-smoothing:antialiased;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+
+    /* =====================================================
+       HEADER
+    ===================================================== */
+
+    .manuel-header{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      z-index:100;
+
+      padding:22px 0;
+
+      background:rgba(13,14,16,.72);
+      backdrop-filter:blur(14px);
+
+      border-bottom:1px solid var(--line-soft);
+    }
+
+    .manuel-nav{
+      width:min(1180px,calc(100% - 48px));
+      margin:auto;
+
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .manuel-brand{
+      font-size:14px;
+      font-weight:700;
+      letter-spacing:.08em;
+    }
+
+    .manuel-brand b{
+      color:var(--steel);
+      font-weight:400;
+    }
+
+    .back-link{
+      display:flex;
+      align-items:center;
+      gap:10px;
+
+      color:var(--ink-2);
+
+      font-size:10px;
+      font-weight:700;
+
+      letter-spacing:.14em;
+      text-transform:uppercase;
+
+      transition:color .3s ease;
+    }
+
+    .back-link span{
+      transition:transform .3s var(--ease);
+    }
+
+    .back-link:hover{
+      color:var(--ink);
+    }
+
+    .back-link:hover span{
+      transform:translateX(-5px);
+    }
+
+
+    /* =====================================================
+       HERO
+    ===================================================== */
+
+    .manuel-hero{
+
+      min-height:100vh;
+
+      width:min(1180px,calc(100% - 48px));
+
+      margin:auto;
+
+      display:grid;
+
+      grid-template-columns:1fr .8fr;
+
+      gap:90px;
+
+      align-items:center;
+
+      padding:150px 0 100px;
+    }
+
+
+    .manuel-kicker{
+
+      display:block;
+
+      margin-bottom:25px;
+
+      color:var(--steel);
+
+      font-size:10px;
+
+      font-weight:700;
+
+      letter-spacing:.2em;
+
+      text-transform:uppercase;
+    }
+
+
+    .manuel-hero h1{
+
+      font-family:var(--serif);
+
+      font-size:clamp(60px,8vw,108px);
+
+      line-height:.84;
+
+      letter-spacing:-.055em;
+
+      font-weight:400;
+
+      margin-bottom:34px;
+    }
+
+
+    .manuel-hero h1 span{
+
+      display:block;
+
+      margin-top:28px;
+
+      color:var(--steel);
+
+      font-family:var(--sans);
+
+      font-size:.34em;
+
+      font-weight:600;
+
+      line-height:1.35;
+
+      letter-spacing:.015em;
+    }
+
+
+    .manuel-intro{
+
+      max-width:590px;
+
+      color:var(--ink-2);
+
+      font-size:17px;
+
+      line-height:1.8;
+    }
+
+
+    /* =====================================================
+       RETRATO
+    ===================================================== */
+
+    .manuel-portrait{
+
+      position:relative;
+
+      width:100%;
+
+      max-width:450px;
+
+      justify-self:end;
+
+      aspect-ratio:4/5;
+
+      overflow:hidden;
+
+      background:var(--bg-soft);
+    }
+
+
+    .manuel-portrait::before{
+
+      content:"";
+
+      position:absolute;
+
+      inset:14px;
+
+      border:1px solid rgba(241,241,239,.2);
+
+      z-index:2;
+
+      pointer-events:none;
+    }
+
+
+    .manuel-portrait img{
+
+      width:100%;
+      height:100%;
+
+      object-fit:cover;
+
+      display:block;
+
+      filter:
+        grayscale(.9)
+        contrast(1.08)
+        brightness(.8);
+
+      transition:
+        transform 1s var(--ease),
+        filter .8s var(--ease);
+    }
+
+
+    .manuel-portrait:hover img{
+
+      transform:scale(1.035);
+
+      filter:
+        grayscale(.55)
+        contrast(1.06)
+        brightness(.88);
+    }
+
+
+    .portrait-number{
+
+      position:absolute;
+
+      z-index:3;
+
+      bottom:24px;
+      left:25px;
+
+      color:rgba(241,241,239,.7);
+
+      font-family:var(--serif);
+
+      font-size:14px;
+
+      font-style:italic;
+    }
+
+
+    /* =====================================================
+       FRASE CENTRAL
+    ===================================================== */
+
+    .manuel-statement{
+
+      padding:110px 0;
+
+      border-top:1px solid var(--line);
+
+      border-bottom:1px solid var(--line);
+    }
+
+
+    .statement-wrap{
+
+      width:min(1000px,calc(100% - 48px));
+
+      margin:auto;
+    }
+
+
+    .statement-label{
+
+      margin-bottom:30px;
+
+      color:var(--steel);
+
+      font-size:9px;
+
+      font-weight:700;
+
+      letter-spacing:.18em;
+
+      text-transform:uppercase;
+    }
+
+
+    .statement{
+
+      font-family:var(--serif);
+
+      font-size:clamp(34px,5vw,64px);
+
+      line-height:1.05;
+
+      letter-spacing:-.035em;
+    }
+
+
+    .statement em{
+
+      color:var(--steel);
+
+      font-style:italic;
+    }
+
+
+    /* =====================================================
+       PERFIL
+    ===================================================== */
+
+    .manuel-profile{
+
+      padding:120px 0;
+    }
+
+
+    .profile-wrap{
+
+      width:min(1180px,calc(100% - 48px));
+
+      margin:auto;
+
+      display:grid;
+
+      grid-template-columns:.65fr 1fr;
+
+      gap:110px;
+    }
+
+
+    .profile-title{
+
+      position:sticky;
+
+      top:130px;
+
+      align-self:start;
+    }
+
+
+    .profile-title .eyebrow{
+
+      display:block;
+
+      margin-bottom:20px;
+
+      color:var(--steel);
+
+      font-size:10px;
+
+      font-weight:700;
+
+      letter-spacing:.18em;
+
+      text-transform:uppercase;
+    }
+
+
+    .profile-title h2{
+
+      font-family:var(--serif);
+
+      font-size:clamp(42px,5vw,65px);
+
+      line-height:.95;
+
+      font-weight:400;
+
+      letter-spacing:-.04em;
+    }
+
+
+    .profile-content{
+
+      color:var(--ink-2);
+
+      font-size:16px;
+
+      line-height:1.85;
+    }
+
+
+    .profile-content p{
+
+      margin-bottom:28px;
+    }
+
+
+    .profile-content strong{
+
+      color:var(--ink);
+
+      font-weight:500;
+    }
+
+
+    /* =====================================================
+       HABILIDADES
+    ===================================================== */
+
+    .manuel-skills{
+
+      padding:110px 0;
+
+      background:var(--bg-soft);
+
+      border-top:1px solid var(--line);
+
+      border-bottom:1px solid var(--line);
+    }
+
+
+    .skills-wrap{
+
+      width:min(1180px,calc(100% - 48px));
+
+      margin:auto;
+    }
+
+
+    .skills-head{
+
+      margin-bottom:55px;
+    }
+
+
+    .skills-head .eyebrow{
+
+      color:var(--steel);
+
+      font-size:10px;
+
+      font-weight:700;
+
+      letter-spacing:.18em;
+
+      text-transform:uppercase;
+    }
+
+
+    .skills-head h2{
+
+      margin-top:18px;
+
+      font-family:var(--serif);
+
+      font-size:clamp(42px,5vw,68px);
+
+      line-height:.95;
+
+      font-weight:400;
+
+      letter-spacing:-.04em;
+    }
+
+
+    .skills-grid{
+
+      display:grid;
+
+      grid-template-columns:repeat(3,1fr);
+
+      border-top:1px solid var(--line);
+
+      border-left:1px solid var(--line);
+    }
+
+
+    .skill{
+
+      min-height:220px;
+
+      padding:30px;
+
+      border-right:1px solid var(--line);
+
+      border-bottom:1px solid var(--line);
+
+      transition:background .4s var(--ease);
+    }
+
+
+    .skill:hover{
+
+      background:rgba(255,255,255,.025);
+    }
+
+
+    .skill-number{
+
+      display:block;
+
+      margin-bottom:45px;
+
+      color:var(--steel);
+
+      font-family:var(--serif);
+
+      font-size:14px;
+
+      font-style:italic;
+    }
+
+
+    .skill h3{
+
+      margin-bottom:13px;
+
+      font-family:var(--serif);
+
+      font-size:24px;
+
+      font-weight:400;
+    }
+
+
+    .skill p{
+
+      color:var(--ink-2);
+
+      font-size:13px;
+
+      line-height:1.7;
+    }
+
+
+    /* =====================================================
+       APORTE DENTRO DE NOIA
+    ===================================================== */
+
+    .manuel-contribution{
+
+      padding:120px 0;
+    }
+
+
+    .contribution-wrap{
+
+      width:min(1000px,calc(100% - 48px));
+
+      margin:auto;
+    }
+
+
+    .contribution-head{
+
+      margin-bottom:55px;
+    }
+
+
+    .contribution-head .eyebrow{
+
+      color:var(--steel);
+
+      font-size:10px;
+
+      font-weight:700;
+
+      letter-spacing:.18em;
+
+      text-transform:uppercase;
+    }
+
+
+    .contribution-head h2{
+
+      margin-top:20px;
+
+      font-family:var(--serif);
+
+      font-size:clamp(42px,5vw,70px);
+
+      font-weight:400;
+
+      line-height:.95;
+
+      letter-spacing:-.04em;
+    }
+
+
+    .contribution-list{
+
+      border-top:1px solid var(--line);
+    }
+
+
+    .contribution-item{
+
+      display:grid;
+
+      grid-template-columns:70px 1fr;
+
+      gap:25px;
+
+      padding:30px 0;
+
+      border-bottom:1px solid var(--line);
+
+      align-items:start;
+    }
+
+
+    .contribution-item .num{
+
+      color:var(--steel);
+
+      font-family:var(--serif);
+
+      font-style:italic;
+    }
+
+
+    .contribution-item h3{
+
+      margin-bottom:8px;
+
+      font-family:var(--serif);
+
+      font-size:25px;
+
+      font-weight:400;
+    }
+
+
+    .contribution-item p{
+
+      max-width:680px;
+
+      color:var(--ink-2);
+
+      font-size:14px;
+
+      line-height:1.75;
+    }
+
+
+    /* =====================================================
+       NAVEGACIÓN
+    ===================================================== */
+
+    .manuel-next{
+
+      padding:70px 0;
+
+      border-top:1px solid var(--line);
+    }
+
+
+    .next-wrap{
+
+      width:min(1180px,calc(100% - 48px));
+
+      margin:auto;
+
+      display:flex;
+
+      justify-content:space-between;
+
+      align-items:center;
+    }
+
+
+    .next-link{
+
+      display:flex;
+
+      flex-direction:column;
+
+      gap:8px;
+    }
+
+
+    .next-label{
+
+      color:var(--steel);
+
+      font-size:9px;
+
+      font-weight:700;
+
+      letter-spacing:.15em;
+
+      text-transform:uppercase;
+    }
+
+
+    .next-name{
+
+      font-family:var(--serif);
+
+      font-size:25px;
+
+      transition:transform .3s var(--ease);
+    }
+
+
+    .next-link:hover .next-name{
+
+      transform:translateX(7px);
+    }
+
+
+    .next-center{
+
+      color:var(--ink-2);
+
+      font-size:9px;
+
+      letter-spacing:.15em;
+
+      text-transform:uppercase;
+    }
+
+
+    /* =====================================================
+       RESPONSIVE
+    ===================================================== */
+
+    @media(max-width:900px){
+
+      .manuel-hero{
+
+        grid-template-columns:1fr;
+
+        gap:55px;
+
+        padding-top:140px;
+      }
+
+
+      .manuel-portrait{
+
+        justify-self:start;
+
+        max-width:500px;
+      }
+
+
+      .profile-wrap{
+
+        grid-template-columns:1fr;
+
+        gap:55px;
+      }
+
+
+      .profile-title{
+
+        position:static;
+      }
+
+
+      .skills-grid{
+
+        grid-template-columns:1fr 1fr;
+      }
+
+    }
+
+
+    @media(max-width:600px){
+
+      .manuel-nav{
+
+        width:calc(100% - 32px);
+      }
+
+
+      .manuel-hero,
+      .profile-wrap,
+      .skills-wrap,
+      .next-wrap{
+
+        width:calc(100% - 32px);
+      }
+
+
+      .manuel-hero{
+
+        padding-top:120px;
+      }
+
+
+      .manuel-hero h1{
+
+        font-size:60px;
+      }
+
+
+      .manuel-statement,
+      .manuel-profile,
+      .manuel-skills,
+      .manuel-contribution{
+
+        padding:80px 0;
+      }
+
+
+      .skills-grid{
+
+        grid-template-columns:1fr;
+      }
+
+
+      .skill{
+
+        min-height:auto;
+      }
+
+
+      .contribution-item{
+
+        grid-template-columns:40px 1fr;
+      }
+
+
+      .next-center{
+
+        display:none;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="manuel-header">
+
+  <div class="manuel-nav">
+
+    <a href="index.html" class="back-link">
+      <span>←</span>
+      Volver a NOIA
+    </a>
+
+    <a href="index.html" class="manuel-brand">
+      NOIA <b>Group</b>
+    </a>
+
+  </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<main>
+
+<section class="manuel-hero">
+
+  <div>
+
+    <span class="manuel-kicker">
+      Integrante · NOIA Group
+    </span>
+
+
+    <h1>
+
+      Manuel
+      Cardozo
+
+      <span>
+        Marketing · Branding · Contenido · Innovación
+      </span>
+
+    </h1>
+
+
+    <p class="manuel-intro">
+
+      Estrategia, creatividad e innovación para transformar
+      ideas en marcas capaces de diferenciarse, conectar
+      y crecer.
+
+    </p>
+
+  </div>
+
+
+
+  <div class="manuel-portrait">
+
+    <!-- CAMBIA ESTA RUTA POR LA FOTO DE MANUEL -->
+
+    <img
+      src="../assets/img/manuel-cardozo.jpg"
+      alt="Manuel Cardozo"
+    >
+
+    <span class="portrait-number">
+      NOIA / 04
+    </span>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FRASE CENTRAL
+===================================================== -->
+
+<section class="manuel-statement">
+
+  <div class="statement-wrap">
+
+    <div class="statement-label">
+      Una mirada dentro de NOIA
+    </div>
+
+
+    <div class="statement">
+
+      “Una marca sólida nace de la
+      combinación entre
+      <em>estrategia, creatividad e innovación.</em>”
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PERFIL
+===================================================== -->
+
+<section class="manuel-profile">
+
+  <div class="profile-wrap">
+
+
+    <div class="profile-title">
+
+      <span class="eyebrow">
+        Perfil
+      </span>
+
+
+      <h2>
+
+        Convertir<br>
+        ideas en<br>
+        valor.
+
+      </h2>
+
+    </div>
+
+
+
+    <div class="profile-content">
+
+      <p>
+
+        <strong>Manuel Cardozo</strong> es profesional en
+        Marketing y Medios Digitales, graduado de la
+        Universidad Católica Boliviana “San Pablo”.
+
+        Complementó su formación con un semestre de
+        estudios de posgrado en Marketing en la
+        University of Southern California (USC),
+        fortaleciendo su visión estratégica y perspectiva
+        internacional.
+
+      </p>
+
+
+      <p>
+
+        Su especialización se encuentra en la
+        <strong>estrategia de marketing, posicionamiento
+        de marca, branding, creación de contenido e
+        inteligencia artificial aplicada a la comunicación
+        y los negocios.</strong>
+
+      </p>
+
+
+      <p>
+
+        Su experiencia también comprende el desarrollo
+        de campañas de marketing y comunicación,
+        producción y edición de contenido audiovisual
+        y creación de avatares digitales realistas
+        mediante inteligencia artificial.
+
+      </p>
+
+
+      <p>
+
+        Dentro de <strong>NOIA Group</strong>, trabaja en
+        el desarrollo de estrategias de posicionamiento
+        y crecimiento para marcas personales y
+        empresariales.
+
+      </p>
+
+
+      <p>
+
+        Su enfoque combina estrategia y creatividad
+        con nuevas herramientas tecnológicas para
+        transformar ideas en soluciones capaces de
+        generar <strong>valor, diferenciación y resultados.</strong>
+
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     HABILIDADES
+===================================================== -->
+
+<section class="manuel-skills">
+
+  <div class="skills-wrap">
+
+
+    <div class="skills-head">
+
+      <span class="eyebrow">
+        Áreas de especialización
+      </span>
+
+
+      <h2>
+
+        Lo que aporta<br>
+        al proceso.
+
+      </h2>
+
+    </div>
+
+
+
+    <div class="skills-grid">
+
+
+      <div class="skill">
+
+        <span class="skill-number">
+          01
+        </span>
+
+        <h3>
+          Estrategia de marketing
+        </h3>
+
+        <p>
+
+          Diseño de estrategias orientadas a posicionar
+          marcas, conectar con audiencias y generar
+          oportunidades de crecimiento.
+
+        </p>
+
+      </div>
+
+
+
+      <div class="skill">
+
+        <span class="skill-number">
+          02
+        </span>
+
+        <h3>
+          Branding
+        </h3>
+
+        <p>
+
+          Construcción de identidades capaces de
+          diferenciar una marca y transmitir con claridad
+          aquello que representa.
+
+        </p>
+
+      </div>
+
+
+
+      <div class="skill">
+
+        <span class="skill-number">
+          03
+        </span>
+
+        <h3>
+          Posicionamiento
+        </h3>
+
+        <p>
+
+          Desarrollo de estrategias para fortalecer la
+          presencia y percepción de una marca dentro
+          de su entorno.
+
+        </p>
+
+      </div>
+
+
+
+      <div class="skill">
+
+        <span class="skill-number">
+          04
+        </span>
+
+        <h3>
+          Contenido digital
+        </h3>
+
+        <p>
+
+          Creación y producción de contenido audiovisual
+          pensado para comunicar, conectar y fortalecer
+          una presencia digital.
+
+        </p>
+
+      </div>
+
+
+
+      <div class="skill">
+
+        <span class="skill-number">
+          05
+        </span>
+
+        <h3>
+          Inteligencia artificial
+        </h3>
+
+        <p>
+
+          Aplicación de inteligencia artificial a la
+          comunicación, el marketing y los negocios para
+          explorar nuevas posibilidades creativas.
+
+        </p>
+
+      </div>
+
+
+
+      <div class="skill">
+
+        <span class="skill-number">
+          06
+        </span>
+
+        <h3>
+          Innovación digital
+        </h3>
+
+        <p>
+
+          Integración de herramientas y soluciones
+          digitales para convertir ideas en propuestas
+          prácticas y diferenciadoras.
+
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     APORTE DENTRO DE NOIA
+===================================================== -->
+
+<section class="manuel-contribution">
+
+  <div class="contribution-wrap">
+
+
+    <div class="contribution-head">
+
+      <span class="eyebrow">
+        Su aporte dentro de NOIA
+      </span>
+
+
+      <h2>
+
+        Hacer que una<br>
+        marca llegue<br>
+        más lejos.
+
+      </h2>
+
+    </div>
+
+
+
+    <div class="contribution-list">
+
+
+      <div class="contribution-item">
+
+        <span class="num">
+          01
+        </span>
+
+
+        <div>
+
+          <h3>
+            Convertir ideas en estrategia
+          </h3>
+
+          <p>
+
+            Ayuda a transformar conceptos e ideas en
+            estrategias concretas de marketing y
+            posicionamiento, dando dirección a cada
+            proyecto.
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="contribution-item">
+
+        <span class="num">
+          02
+        </span>
+
+
+        <div>
+
+          <h3>
+            Construir diferenciación
+          </h3>
+
+          <p>
+
+            Trabaja para identificar aquello que hace
+            única a una persona o empresa y convertirlo
+            en una propuesta de valor clara y reconocible.
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="contribution-item">
+
+        <span class="num">
+          03
+        </span>
+
+
+        <div>
+
+          <h3>
+            Potenciar la comunicación digital
+          </h3>
+
+          <p>
+
+            Integra contenido, marketing y herramientas
+            digitales para ayudar a que una marca comunique
+            mejor y tenga mayor presencia.
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="contribution-item">
+
+        <span class="num">
+          04
+        </span>
+
+
+        <div>
+
+          <h3>
+            Innovar para crecer
+          </h3>
+
+          <p>
+
+            Explora nuevas tecnologías e inteligencia
+            artificial para desarrollar soluciones que
+            permitan llevar una marca más lejos.
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     NAVEGACIÓN ENTRE INTEGRANTES
+===================================================== -->
+
+<section class="manuel-next">
+
+  <div class="next-wrap">
+
+
+    <a href="roxan.html" class="next-link">
+
+      <span class="next-label">
+        Integrante anterior
+      </span>
+
+      <span class="next-name">
+        ← Roxan Lazarte
+      </span>
+
+    </a>
+
+
+
+    <span class="next-center">
+      NOIA GROUP · 04 / 05
+    </span>
+
+
+
+    <a href="integrante-05.html" class="next-link">
+
+      <span class="next-label">
+        Siguiente integrante
+      </span>
+
+      <span class="next-name">
+        Ver perfil →
+      </span>
+
+    </a>
+
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+</body>
+</html>
