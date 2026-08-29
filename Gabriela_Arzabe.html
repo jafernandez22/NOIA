@@ -1,10 +1,12 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Marco de la Cruz · NOIA Group</title>
+  <title>Gabriela Arzabe · NOIA Group</title>
 
   <style>
 
@@ -15,6 +17,7 @@
     :root{
       --bg:#0d0e10;
       --bg-soft:#131519;
+
       --ink:#f1f1ef;
       --ink-2:#a8abb0;
       --steel:#8c9bab;
@@ -60,10 +63,13 @@
        HEADER
     ===================================================== */
 
-    .marco-header{
+    .gabriela-header{
+
       position:fixed;
+
       top:0;
       left:0;
+
       width:100%;
 
       z-index:100;
@@ -71,66 +77,91 @@
       padding:22px 0;
 
       background:rgba(13,14,16,.72);
+
       backdrop-filter:blur(14px);
 
       border-bottom:1px solid var(--line-soft);
     }
 
-    .marco-nav{
+
+    .gabriela-nav{
+
       width:min(1180px,calc(100% - 48px));
+
       margin:auto;
 
       display:flex;
+
       align-items:center;
+
       justify-content:space-between;
     }
 
-    .marco-brand{
+
+    .gabriela-brand{
+
       font-size:14px;
+
       font-weight:700;
 
       letter-spacing:.08em;
     }
 
-    .marco-brand b{
+
+    .gabriela-brand b{
+
       color:var(--steel);
+
       font-weight:400;
     }
 
+
     .back-link{
+
       display:flex;
+
       align-items:center;
+
       gap:10px;
 
       color:var(--ink-2);
 
       font-size:10px;
+
       font-weight:700;
 
       letter-spacing:.14em;
+
       text-transform:uppercase;
 
       transition:color .3s ease;
     }
 
+
     .back-link span{
+
       transition:transform .3s var(--ease);
     }
 
+
     .back-link:hover{
+
       color:var(--ink);
     }
 
+
     .back-link:hover span{
+
       transform:translateX(-5px);
     }
+
 
 
     /* =====================================================
        HERO
     ===================================================== */
 
-    .marco-hero{
+    .gabriela-hero{
 
       min-height:100vh;
 
@@ -150,7 +181,8 @@
     }
 
 
-    .marco-kicker{
+    .gabriela-kicker{
+
       display:block;
 
       margin-bottom:25px;
@@ -167,7 +199,7 @@
     }
 
 
-    .marco-hero h1{
+    .gabriela-hero h1{
 
       font-family:var(--serif);
 
@@ -183,7 +215,7 @@
     }
 
 
-    .marco-hero h1 span{
+    .gabriela-hero h1 span{
 
       display:block;
 
@@ -193,19 +225,19 @@
 
       font-family:var(--sans);
 
-      font-size:.38em;
+      font-size:.31em;
 
       font-weight:600;
 
-      line-height:1.25;
+      line-height:1.4;
 
       letter-spacing:.015em;
     }
 
 
-    .marco-intro{
+    .gabriela-intro{
 
-      max-width:580px;
+      max-width:590px;
 
       color:var(--ink-2);
 
@@ -215,11 +247,12 @@
     }
 
 
+
     /* =====================================================
        RETRATO
     ===================================================== */
 
-    .marco-portrait{
+    .gabriela-portrait{
 
       position:relative;
 
@@ -237,7 +270,7 @@
     }
 
 
-    .marco-portrait::before{
+    .gabriela-portrait::before{
 
       content:"";
 
@@ -253,9 +286,10 @@
     }
 
 
-    .marco-portrait img{
+    .gabriela-portrait img{
 
       width:100%;
+
       height:100%;
 
       object-fit:cover;
@@ -264,8 +298,8 @@
 
       filter:
         grayscale(.9)
-        contrast(1.1)
-        brightness(.78);
+        contrast(1.08)
+        brightness(.8);
 
       transition:
         transform 1s var(--ease),
@@ -273,14 +307,14 @@
     }
 
 
-    .marco-portrait:hover img{
+    .gabriela-portrait:hover img{
 
       transform:scale(1.035);
 
       filter:
-        grayscale(.6)
-        contrast(1.08)
-        brightness(.86);
+        grayscale(.55)
+        contrast(1.06)
+        brightness(.88);
     }
 
 
@@ -291,6 +325,7 @@
       z-index:3;
 
       bottom:24px;
+
       left:25px;
 
       color:rgba(241,241,239,.7);
@@ -303,11 +338,12 @@
     }
 
 
+
     /* =====================================================
        FRASE
     ===================================================== */
 
-    .marco-statement{
+    .gabriela-statement{
 
       padding:110px 0;
 
@@ -361,11 +397,12 @@
     }
 
 
+
     /* =====================================================
        PERFIL
     ===================================================== */
 
-    .marco-profile{
+    .gabriela-profile{
 
       padding:120px 0;
     }
@@ -451,11 +488,12 @@
     }
 
 
+
     /* =====================================================
        HABILIDADES
     ===================================================== */
 
-    .marco-skills{
+    .gabriela-skills{
 
       padding:110px 0;
 
@@ -581,11 +619,12 @@
     }
 
 
+
     /* =====================================================
-       APORTE
+       APORTE DENTRO DE NOIA
     ===================================================== */
 
-    .marco-contribution{
+    .gabriela-contribution{
 
       padding:120px 0;
     }
@@ -691,11 +730,12 @@
     }
 
 
+
     /* =====================================================
        NAVEGACIÓN
     ===================================================== */
 
-    .marco-next{
+    .gabriela-next{
 
       padding:70px 0;
 
@@ -769,13 +809,14 @@
     }
 
 
+
     /* =====================================================
        RESPONSIVE
     ===================================================== */
 
     @media(max-width:900px){
 
-      .marco-hero{
+      .gabriela-hero{
 
         grid-template-columns:1fr;
 
@@ -785,7 +826,7 @@
       }
 
 
-      .marco-portrait{
+      .gabriela-portrait{
 
         justify-self:start;
 
@@ -817,13 +858,13 @@
 
     @media(max-width:600px){
 
-      .marco-nav{
+      .gabriela-nav{
 
         width:calc(100% - 32px);
       }
 
 
-      .marco-hero,
+      .gabriela-hero,
       .profile-wrap,
       .skills-wrap,
       .next-wrap{
@@ -832,22 +873,22 @@
       }
 
 
-      .marco-hero{
+      .gabriela-hero{
 
         padding-top:120px;
       }
 
 
-      .marco-hero h1{
+      .gabriela-hero h1{
 
         font-size:60px;
       }
 
 
-      .marco-statement,
-      .marco-profile,
-      .marco-skills,
-      .marco-contribution{
+      .gabriela-statement,
+      .gabriela-profile,
+      .gabriela-skills,
+      .gabriela-contribution{
 
         padding:80px 0;
       }
@@ -879,6 +920,7 @@
     }
 
   </style>
+
 </head>
 
 
@@ -889,16 +931,17 @@
      HEADER
 ===================================================== -->
 
-<header class="marco-header">
+<header class="gabriela-header">
 
-  <div class="marco-nav">
+  <div class="gabriela-nav">
 
     <a href="index.html" class="back-link">
       <span>←</span>
       Volver a NOIA
     </a>
 
-    <a href="index.html" class="marco-brand">
+
+    <a href="index.html" class="gabriela-brand">
       NOIA <b>Group</b>
     </a>
 
@@ -914,32 +957,33 @@
 
 <main>
 
-<section class="marco-hero">
+<section class="gabriela-hero">
+
 
   <div>
 
-    <span class="marco-kicker">
+    <span class="gabriela-kicker">
       Integrante · NOIA Group
     </span>
 
 
     <h1>
 
-      Marco
-      de la Cruz
+      Gabriela
+      Arzabe
 
       <span>
-        Liderazgo · Comunicación · Presencia · Formación
+        Actuación · Comunicación Escénica · Expresión · Dirección Creativa
       </span>
 
     </h1>
 
 
-    <p class="marco-intro">
+    <p class="gabriela-intro">
 
-      Disciplina, liderazgo y comunicación para desarrollar
-      una presencia capaz de transmitir seguridad, autoridad
-      y determinación.
+      La comunicación no ocurre únicamente a través de
+      las palabras. También vive en el cuerpo, en la voz,
+      en la mirada y en la manera en que ocupamos un espacio.
 
     </p>
 
@@ -947,11 +991,13 @@
 
 
 
-  <div class="marco-portrait">
+  <div class="gabriela-portrait">
+
     <img
-      src="assets/marco.png"
-      alt="Marco de la Cruz"
+      src="assets/gabi.png"
+      alt="Gabriela Arzabe"
     >
+
 
     <span class="portrait-number">
       NOIA
@@ -959,15 +1005,16 @@
 
   </div>
 
+
 </section>
 
 
 
 <!-- =====================================================
-     FRASE
+     FRASE CENTRAL
 ===================================================== -->
 
-<section class="marco-statement">
+<section class="gabriela-statement">
 
   <div class="statement-wrap">
 
@@ -978,8 +1025,8 @@
 
     <div class="statement">
 
-      “Ayudar a las personas a mejorar
-      <em>es mi mayor misión.</em>”
+      “Comunica con
+      <em>voz, cuerpo y presencia.</em>”
 
     </div>
 
@@ -993,7 +1040,7 @@
      PERFIL
 ===================================================== -->
 
-<section class="marco-profile">
+<section class="gabriela-profile">
 
   <div class="profile-wrap">
 
@@ -1007,9 +1054,9 @@
 
       <h2>
 
-        Disciplina<br>
-        que se<br>
-        proyecta.
+        La presencia<br>
+        también<br>
+        comunica.
 
       </h2>
 
@@ -1019,49 +1066,56 @@
 
     <div class="profile-content">
 
+
       <p>
 
-        <strong>Marco de la Cruz</strong> es oficial militar,
-        instructor de Fuerzas Especiales, buzo táctico y deportivo,
-        ingeniero geógrafo, comunicador y líder.
+        <strong>Gabriela Arzabe</strong> es actriz,
+        especialista en comunicación escénica y expresión
+        integral, además de Directora Creativa, con
+        <strong>16 años de experiencia en teatro y artes
+        escénicas.</strong>
 
       </p>
 
 
       <p>
 
-        Su trayectoria está marcada por la
-        <strong>disciplina, el liderazgo, la preparación
-        y la capacidad de actuar ante situaciones exigentes.</strong>
+        Su trayectoria integra actuación, creatividad,
+        dirección y comunicación, desarrollando una mirada
+        profunda sobre la relación entre <strong>voz, cuerpo
+        y presencia.</strong>
 
       </p>
 
 
       <p>
 
-        Como comunicador y formador, acompaña a las personas
-        en el desarrollo de su seguridad, ayudándolas a proyectar
-        su voz, conectar con los demás y construir una presencia
-        capaz de generar autoridad e impacto.
+        Acompaña a las personas a fortalecer su expresión,
+        seguridad y naturalidad mediante herramientas
+        provenientes del entrenamiento actoral, como la
+        <strong>improvisación, intención, escucha, manejo
+        del espacio y conexión con el público.</strong>
 
       </p>
 
 
       <p>
 
-        Dentro de <strong>NOIA Group</strong>, su experiencia
-        se convierte en una herramienta de formación para quienes
-        buscan fortalecer su presencia, comunicación y capacidad
-        de liderazgo.
+        Su trabajo busca integrar cuerpo, voz, pensamiento
+        e intención para que cada persona pueda comunicar
+        con mayor conciencia y generar una conexión
+        auténtica con quienes la escuchan.
 
       </p>
 
 
       <p>
 
-        Su propósito es servir y ayudar a cada persona a desarrollar
-        su potencial para <strong>liderar, comunicar y avanzar
-        con mayor firmeza y determinación.</strong>
+        Como <strong>Directora Creativa</strong>, aporta
+        una mirada estratégica sobre la expresión y la
+        puesta en escena, convirtiendo la comunicación en
+        una experiencia que no solamente transmite,
+        sino que conecta.
 
       </p>
 
@@ -1077,7 +1131,7 @@
      HABILIDADES
 ===================================================== -->
 
-<section class="marco-skills">
+<section class="gabriela-skills">
 
   <div class="skills-wrap">
 
@@ -1109,15 +1163,17 @@
           01
         </span>
 
+
         <h3>
-          Liderazgo
+          Comunicación escénica
         </h3>
+
 
         <p>
 
-          Desarrollo de capacidades para asumir
-          responsabilidades, tomar decisiones y proyectar
-          seguridad frente a los demás.
+          Herramientas provenientes del teatro y las artes
+          escénicas para desarrollar seguridad, presencia
+          y capacidad de conexión.
 
         </p>
 
@@ -1131,15 +1187,17 @@
           02
         </span>
 
+
         <h3>
-          Comunicación
+          Expresión corporal
         </h3>
+
 
         <p>
 
-          Trabajo sobre la forma de expresarse, conectar
-          con otras personas y transmitir mensajes con
-          mayor claridad y seguridad.
+          Trabajo consciente del cuerpo, los movimientos
+          y el manejo del espacio para comunicar con mayor
+          naturalidad e intención.
 
         </p>
 
@@ -1153,15 +1211,17 @@
           03
         </span>
 
+
         <h3>
-          Presencia
+          Improvisación
         </h3>
+
 
         <p>
 
-          Fortalecimiento de la postura, actitud y
-          comportamiento para construir una presencia
-          que genere confianza y autoridad.
+          Ejercicios actorales orientados a desarrollar
+          espontaneidad, capacidad de respuesta y
+          seguridad frente a situaciones inesperadas.
 
         </p>
 
@@ -1175,15 +1235,17 @@
           04
         </span>
 
+
         <h3>
-          Disciplina
+          Presencia y conexión
         </h3>
+
 
         <p>
 
-          Aplicación de principios de disciplina y
-          preparación para convertir objetivos personales
-          en acciones concretas.
+          Desarrollo de recursos para conectar con otras
+          personas y generar una presencia auténtica
+          frente al público.
 
         </p>
 
@@ -1197,15 +1259,17 @@
           05
         </span>
 
+
         <h3>
-          Formación
+          Voz e intención
         </h3>
+
 
         <p>
 
-          Capacidad para acompañar procesos de aprendizaje
-          mediante ejercicios prácticos y experiencias
-          orientadas al desarrollo personal.
+          Integración de voz e intención para que cada
+          mensaje pueda transmitir con mayor conciencia
+          y significado.
 
         </p>
 
@@ -1219,15 +1283,17 @@
           06
         </span>
 
+
         <h3>
-          Seguridad personal
+          Dirección creativa
         </h3>
+
 
         <p>
 
-          Trabajo enfocado en fortalecer la confianza,
-          la determinación y la capacidad de desenvolverse
-          ante diferentes situaciones.
+          Una mirada creativa y estratégica sobre la
+          expresión, la puesta en escena y la manera
+          de construir experiencias de comunicación.
 
         </p>
 
@@ -1246,7 +1312,7 @@
      APORTE DENTRO DE NOIA
 ===================================================== -->
 
-<section class="marco-contribution">
+<section class="gabriela-contribution">
 
   <div class="contribution-wrap">
 
@@ -1260,8 +1326,9 @@
 
       <h2>
 
-        Preparar personas<br>
-        para hacerse notar.
+        Que tu presencia<br>
+        también cuente<br>
+        una historia.
 
       </h2>
 
@@ -1285,11 +1352,12 @@
             Fortalecer la seguridad
           </h3>
 
+
           <p>
 
-            Acompaña a las personas en el desarrollo de
-            una mayor seguridad personal para desenvolverse
-            con firmeza en diferentes contextos.
+            Utiliza herramientas del entrenamiento actoral
+            para ayudar a las personas a desenvolverse
+            con mayor seguridad y naturalidad.
 
           </p>
 
@@ -1309,14 +1377,15 @@
         <div>
 
           <h3>
-            Potenciar la comunicación
+            Integrar cuerpo y voz
           </h3>
+
 
           <p>
 
-            Trabaja la manera en que una persona utiliza
-            su voz, presencia y lenguaje para conectar
-            mejor con quienes la rodean.
+            Trabaja la comunicación desde una perspectiva
+            integral, entendiendo que la voz y el cuerpo
+            forman parte de un mismo mensaje.
 
           </p>
 
@@ -1336,14 +1405,15 @@
         <div>
 
           <h3>
-            Desarrollar liderazgo
+            Desarrollar presencia
           </h3>
+
 
           <p>
 
-            Comparte herramientas y experiencias orientadas
-            a desarrollar iniciativa, responsabilidad,
-            determinación y capacidad de liderazgo.
+            Ayuda a cada persona a comprender cómo ocupa
+            un espacio, cómo dirige su atención y cómo
+            puede generar una conexión auténtica.
 
           </p>
 
@@ -1363,14 +1433,17 @@
         <div>
 
           <h3>
-            Convertir preparación en presencia
+            Convertir comunicación en experiencia
           </h3>
+
 
           <p>
 
-            Su enfoque busca que la preparación interna
-            pueda reflejarse en la forma en que una persona
-            comunica, actúa y se presenta ante los demás.
+            Desde la dirección creativa y las artes
+            escénicas, aporta herramientas para que
+            comunicar no sea solamente transmitir
+            información, sino generar una experiencia
+            capaz de conectar.
 
           </p>
 
@@ -1391,16 +1464,17 @@
      NAVEGACIÓN ENTRE INTEGRANTES
 ===================================================== -->
 
-<section class="marco-next">
+<section class="gabriela-next">
 
   <div class="next-wrap">
 
 
-    <a href="Gabriela_Arzabe.html" class="next-link">
+    <a href="Jose_Fernandez.html" class="next-link">
 
       <span class="next-label">
         Integrante anterior
       </span>
+
 
       <span class="next-name">
         ← Ver perfil
@@ -1411,16 +1485,17 @@
 
 
     <span class="next-center">
-      NOIA GROUP · 02 / 07
+      NOIA GROUP · 06 / 07
     </span>
 
 
 
-    <a href="Roxan_Lazarte.html" class="next-link">
+    <a href="German_Mariaca_Iturri.html" class="next-link">
 
       <span class="next-label">
         Siguiente integrante
       </span>
+
 
       <span class="next-name">
         Ver perfil →
@@ -1439,3 +1514,4 @@
 
 </body>
 </html>
+```
