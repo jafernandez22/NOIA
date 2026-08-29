@@ -1,10 +1,12 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Roxan Lazarte · NOIA Group</title>
+  <title>Lucía Oporto · NOIA Group</title>
 
   <style>
 
@@ -61,75 +63,104 @@
        HEADER
     ===================================================== */
 
-    .roxan-header{
+    .lucia-header{
+
       position:fixed;
       top:0;
       left:0;
+
       width:100%;
+
       z-index:100;
 
       padding:22px 0;
 
       background:rgba(13,14,16,.72);
+
       backdrop-filter:blur(14px);
 
       border-bottom:1px solid var(--line-soft);
     }
 
-    .roxan-nav{
+
+    .lucia-nav{
+
       width:min(1180px,calc(100% - 48px));
+
       margin:auto;
 
       display:flex;
+
       align-items:center;
+
       justify-content:space-between;
     }
 
-    .roxan-brand{
+
+    .lucia-brand{
+
       font-size:14px;
+
       font-weight:700;
+
       letter-spacing:.08em;
     }
 
-    .roxan-brand b{
+
+    .lucia-brand b{
+
       color:var(--steel);
+
       font-weight:400;
     }
 
+
     .back-link{
+
       display:flex;
+
       align-items:center;
+
       gap:10px;
 
       color:var(--ink-2);
 
       font-size:10px;
+
       font-weight:700;
 
       letter-spacing:.14em;
+
       text-transform:uppercase;
 
       transition:color .3s ease;
     }
 
+
     .back-link span{
+
       transition:transform .3s var(--ease);
     }
 
+
     .back-link:hover{
+
       color:var(--ink);
     }
 
+
     .back-link:hover span{
+
       transform:translateX(-5px);
     }
+
 
 
     /* =====================================================
        HERO
     ===================================================== */
 
-    .roxan-hero{
+    .lucia-hero{
 
       min-height:100vh;
 
@@ -149,7 +180,7 @@
     }
 
 
-    .roxan-kicker{
+    .lucia-kicker{
 
       display:block;
 
@@ -167,13 +198,13 @@
     }
 
 
-    .roxan-hero h1{
+    .lucia-hero h1{
 
       font-family:var(--serif);
 
-      font-size:clamp(60px,8vw,108px);
+      font-size:clamp(58px,7.5vw,104px);
 
-      line-height:.84;
+      line-height:.86;
 
       letter-spacing:-.055em;
 
@@ -183,7 +214,7 @@
     }
 
 
-    .roxan-hero h1 span{
+    .lucia-hero h1 span{
 
       display:block;
 
@@ -193,19 +224,19 @@
 
       font-family:var(--sans);
 
-      font-size:.36em;
+      font-size:.27em;
 
       font-weight:600;
 
-      line-height:1.3;
+      line-height:1.45;
 
       letter-spacing:.015em;
     }
 
 
-    .roxan-intro{
+    .lucia-intro{
 
-      max-width:580px;
+      max-width:600px;
 
       color:var(--ink-2);
 
@@ -215,11 +246,12 @@
     }
 
 
+
     /* =====================================================
        RETRATO
     ===================================================== */
 
-    .roxan-portrait{
+    .lucia-portrait{
 
       position:relative;
 
@@ -237,7 +269,7 @@
     }
 
 
-    .roxan-portrait::before{
+    .lucia-portrait::before{
 
       content:"";
 
@@ -253,9 +285,10 @@
     }
 
 
-    .roxan-portrait img{
+    .lucia-portrait img{
 
       width:100%;
+
       height:100%;
 
       object-fit:cover;
@@ -265,7 +298,7 @@
       filter:
         grayscale(.9)
         contrast(1.08)
-        brightness(.8);
+        brightness(.78);
 
       transition:
         transform 1s var(--ease),
@@ -273,7 +306,7 @@
     }
 
 
-    .roxan-portrait:hover img{
+    .lucia-portrait:hover img{
 
       transform:scale(1.035);
 
@@ -291,6 +324,7 @@
       z-index:3;
 
       bottom:24px;
+
       left:25px;
 
       color:rgba(241,241,239,.7);
@@ -303,11 +337,12 @@
     }
 
 
+
     /* =====================================================
        FRASE CENTRAL
     ===================================================== */
 
-    .roxan-statement{
+    .lucia-statement{
 
       padding:110px 0;
 
@@ -361,11 +396,12 @@
     }
 
 
+
     /* =====================================================
        PERFIL
     ===================================================== */
 
-    .roxan-profile{
+    .lucia-profile{
 
       padding:120px 0;
     }
@@ -451,11 +487,12 @@
     }
 
 
+
     /* =====================================================
-       HABILIDADES
+       ESPECIALIDADES
     ===================================================== */
 
-    .roxan-skills{
+    .lucia-skills{
 
       padding:110px 0;
 
@@ -581,11 +618,12 @@
     }
 
 
+
     /* =====================================================
-       APORTE DENTRO DE NOIA
+       APORTE EN NOIA
     ===================================================== */
 
-    .roxan-contribution{
+    .lucia-contribution{
 
       padding:120px 0;
     }
@@ -691,11 +729,73 @@
     }
 
 
+
+    /* =====================================================
+       CIERRE
+    ===================================================== */
+
+    .lucia-closing{
+
+      padding:130px 0;
+
+      text-align:center;
+
+      border-top:1px solid var(--line);
+    }
+
+
+    .closing-wrap{
+
+      width:min(900px,calc(100% - 48px));
+
+      margin:auto;
+    }
+
+
+    .closing-wrap .eyebrow{
+
+      color:var(--steel);
+
+      font-size:9px;
+
+      font-weight:700;
+
+      letter-spacing:.18em;
+
+      text-transform:uppercase;
+    }
+
+
+    .closing-wrap h2{
+
+      margin-top:25px;
+
+      font-family:var(--serif);
+
+      font-size:clamp(40px,6vw,78px);
+
+      line-height:1;
+
+      font-weight:400;
+
+      letter-spacing:-.045em;
+    }
+
+
+    .closing-wrap h2 em{
+
+      color:var(--steel);
+
+      font-style:italic;
+    }
+
+
+
     /* =====================================================
        NAVEGACIÓN
     ===================================================== */
 
-    .roxan-next{
+    .lucia-next{
 
       padding:70px 0;
 
@@ -769,13 +869,14 @@
     }
 
 
+
     /* =====================================================
        RESPONSIVE
     ===================================================== */
 
     @media(max-width:900px){
 
-      .roxan-hero{
+      .lucia-hero{
 
         grid-template-columns:1fr;
 
@@ -785,7 +886,7 @@
       }
 
 
-      .roxan-portrait{
+      .lucia-portrait{
 
         justify-self:start;
 
@@ -817,13 +918,13 @@
 
     @media(max-width:600px){
 
-      .roxan-nav{
+      .lucia-nav{
 
         width:calc(100% - 32px);
       }
 
 
-      .roxan-hero,
+      .lucia-hero,
       .profile-wrap,
       .skills-wrap,
       .next-wrap{
@@ -832,22 +933,23 @@
       }
 
 
-      .roxan-hero{
+      .lucia-hero{
 
         padding-top:120px;
       }
 
 
-      .roxan-hero h1{
+      .lucia-hero h1{
 
-        font-size:60px;
+        font-size:58px;
       }
 
 
-      .roxan-statement,
-      .roxan-profile,
-      .roxan-skills,
-      .roxan-contribution{
+      .lucia-statement,
+      .lucia-profile,
+      .lucia-skills,
+      .lucia-contribution,
+      .lucia-closing{
 
         padding:80px 0;
       }
@@ -879,6 +981,7 @@
     }
 
   </style>
+
 </head>
 
 
@@ -889,16 +992,17 @@
      HEADER
 ===================================================== -->
 
-<header class="roxan-header">
+<header class="lucia-header">
 
-  <div class="roxan-nav">
+  <div class="lucia-nav">
 
     <a href="index.html" class="back-link">
       <span>←</span>
       Volver a NOIA
     </a>
 
-    <a href="index.html" class="roxan-brand">
+
+    <a href="index.html" class="lucia-brand">
       NOIA <b>Group</b>
     </a>
 
@@ -914,32 +1018,33 @@
 
 <main>
 
-<section class="roxan-hero">
+<section class="lucia-hero">
+
 
   <div>
 
-    <span class="roxan-kicker">
-      Integrante · NOIA Group
+    <span class="lucia-kicker">
+      Cofundadora · Directora Estratégica · NOIA Group
     </span>
 
 
     <h1>
 
-      Roxan
-      Lazarte
+      Lucía
+      Oporto
 
       <span>
-        Comunicación · Voz · Expresión · Presencia
+        Transformación · Identidad · Posicionamiento
       </span>
 
     </h1>
 
 
-    <p class="roxan-intro">
+    <p class="lucia-intro">
 
-      Una voz no solo transmite palabras.
-      Puede comunicar seguridad, emoción, identidad
-      y la historia que existe detrás de cada persona.
+      La transformación no comienza en la imagen que
+      proyectamos, sino en la identidad que decidimos
+      construir y sostener.
 
     </p>
 
@@ -947,30 +1052,29 @@
 
 
 
-  <div class="roxan-portrait">
-
-    <!-- CAMBIA ESTA RUTA POR LA FOTO DE ROXAN -->
-
+  <div class="lucia-portrait">
     <img
-      src="../assets/img/roxan-lazarte.jpg"
-      alt="Roxan Lazarte"
+      src="../assets/img/lucia-oporto.jpg"
+      alt="Lucía Oporto"
     >
 
+
     <span class="portrait-number">
-      NOIA / 03
+      NOIA
     </span>
 
   </div>
+
 
 </section>
 
 
 
 <!-- =====================================================
-     FRASE
+     FRASE CENTRAL
 ===================================================== -->
 
-<section class="roxan-statement">
+<section class="lucia-statement">
 
   <div class="statement-wrap">
 
@@ -981,8 +1085,9 @@
 
     <div class="statement">
 
-      “Tu voz es tu marca.
-      <em>Úsala bien.</em>”
+      “No trabajo únicamente sobre lo que una persona
+      proyecta. Trabajo sobre la identidad que necesita
+      <em>construir para poder sostenerlo.</em>”
 
     </div>
 
@@ -996,7 +1101,7 @@
      PERFIL
 ===================================================== -->
 
-<section class="roxan-profile">
+<section class="lucia-profile">
 
   <div class="profile-wrap">
 
@@ -1010,9 +1115,10 @@
 
       <h2>
 
-        Una voz<br>
-        que tiene<br>
-        algo que decir.
+        Construir<br>
+        identidad.<br>
+        Proyectar<br>
+        propósito.
 
       </h2>
 
@@ -1022,53 +1128,60 @@
 
     <div class="profile-content">
 
+
       <p>
 
-        <strong>Roxan Lazarte</strong> es comunicadora y
-        especialista en voz y expresión, con formación y
-        desarrollo constante en el campo de la comunicación,
-        la expresión vocal y la comunicación asertiva.
+        <strong>Lucía Oporto</strong> desarrolla desde
+        2019 procesos de <strong>transformación física,
+        estética, identidad e imagen</strong>, integrando
+        comunicación y estrategia para ayudar a las
+        personas a proyectarse con autenticidad,
+        seguridad y autoridad.
 
       </p>
 
 
       <p>
 
-        Su trabajo parte de una pregunta esencial:
-
-        <strong>¿qué puede transmitir tu voz cuando
-        realmente aprendes a utilizarla?</strong>
-
-      </p>
-
-
-      <p>
-
-        Desde esta perspectiva, acompaña a las personas
-        a descubrir su propia identidad vocal, trabajando
-        herramientas que permiten desarrollar una voz
-        más segura, auténtica y expresiva.
+        A lo largo de su experiencia, su trabajo
+        evolucionó hacia la creación de una
+        <strong>metodología propia de transformación</strong>,
+        diseñada para acompañar a cada persona en un
+        proceso progresivo: descubrir quién es,
+        construir quién quiere llegar a ser y convertir
+        esa transformación en una presencia capaz de
+        generar impacto.
 
       </p>
 
 
       <p>
 
-        Su metodología incorpora técnicas de
-        <strong>calentamiento, respiración, vocalización,
-        dicción, ritmo, intención y armonía</strong>,
-        buscando que la voz no solamente se escuche,
-        sino que comunique, emocione y cuente una historia.
+        Su enfoque entiende la transformación como un
+        proceso integral. La imagen, la comunicación y
+        el posicionamiento adquieren verdadero valor
+        cuando están respaldados por una identidad
+        coherente y sostenible.
 
       </p>
 
 
       <p>
 
-        Su propósito es ayudar a cada persona a encontrar
-        una voz auténtica y segura, capaz de expresar sus
-        ideas con claridad, conectar con los demás y
-        transmitir aquello que verdaderamente quiere decir.
+        Como <strong>cofundadora y directora estratégica
+        de NOIA</strong>, articula un equipo
+        multidisciplinario de especialistas para
+        desarrollar procesos integrales de
+        transformación y posicionamiento.
+
+      </p>
+
+
+      <p>
+
+        Su propósito es ayudar a las personas a construir
+        una <strong>identidad sólida que puedan sostener,
+        comunicar y proyectar con propósito.</strong>
 
       </p>
 
@@ -1081,10 +1194,10 @@
 
 
 <!-- =====================================================
-     HABILIDADES
+     ESPECIALIDADES
 ===================================================== -->
 
-<section class="roxan-skills">
+<section class="lucia-skills">
 
   <div class="skills-wrap">
 
@@ -1098,8 +1211,8 @@
 
       <h2>
 
-        Lo que aporta<br>
-        al proceso.
+        La identidad<br>
+        detrás de la imagen.
 
       </h2>
 
@@ -1116,14 +1229,17 @@
           01
         </span>
 
+
         <h3>
-          Voz
+          Transformación personal
         </h3>
+
 
         <p>
 
-          Desarrollo de la voz como herramienta de
-          comunicación, identidad y presencia personal.
+          Desarrollo de procesos orientados a generar
+          cambios conscientes en la forma en que una
+          persona se percibe y se proyecta.
 
         </p>
 
@@ -1137,15 +1253,17 @@
           02
         </span>
 
+
         <h3>
-          Respiración
+          Identidad personal
         </h3>
+
 
         <p>
 
-          Ejercicios orientados a mejorar el control
-          respiratorio y preparar la voz para una
-          comunicación más segura.
+          Acompañamiento para descubrir, definir y
+          construir una identidad coherente con la
+          persona que se desea llegar a ser.
 
         </p>
 
@@ -1159,14 +1277,17 @@
           03
         </span>
 
+
         <h3>
-          Vocalización
+          Imagen y presencia
         </h3>
+
 
         <p>
 
-          Prácticas para desarrollar una emisión vocal
-          más clara, consciente y expresiva.
+          Integración de imagen, estética y presencia
+          como herramientas para comunicar seguridad,
+          autenticidad y autoridad.
 
         </p>
 
@@ -1180,14 +1301,17 @@
           04
         </span>
 
+
         <h3>
-          Dicción
+          Posicionamiento
         </h3>
+
 
         <p>
 
-          Trabajo enfocado en mejorar la claridad de las
-          palabras y la precisión al momento de comunicar.
+          Construcción estratégica de una presencia
+          capaz de diferenciarse y ocupar un espacio
+          claro en la percepción de los demás.
 
         </p>
 
@@ -1201,14 +1325,17 @@
           05
         </span>
 
+
         <h3>
-          Ritmo e intención
+          Estrategia personal
         </h3>
+
 
         <p>
 
-          Desarrollo de recursos vocales para transmitir
-          intención, emoción y significado en cada mensaje.
+          Conexión entre identidad, comunicación,
+          imagen y objetivos para convertir la
+          transformación en una dirección concreta.
 
         </p>
 
@@ -1222,14 +1349,17 @@
           06
         </span>
 
+
         <h3>
-          Comunicación asertiva
+          Dirección estratégica
         </h3>
+
 
         <p>
 
-          Herramientas para expresar ideas con mayor
-          seguridad, claridad y conexión con los demás.
+          Coordinación de diferentes especialidades
+          para construir procesos integrales de
+          transformación y posicionamiento.
 
         </p>
 
@@ -1248,7 +1378,7 @@
      APORTE DENTRO DE NOIA
 ===================================================== -->
 
-<section class="roxan-contribution">
+<section class="lucia-contribution">
 
   <div class="contribution-wrap">
 
@@ -1262,8 +1392,9 @@
 
       <h2>
 
-        Que tu voz<br>
-        diga quién eres.
+        De la transformación<br>
+        a una identidad<br>
+        <em>que permanece.</em>
 
       </h2>
 
@@ -1284,15 +1415,16 @@
         <div>
 
           <h3>
-            Descubrir la identidad vocal
+            Diseñar el proceso
           </h3>
+
 
           <p>
 
-            Acompaña a cada persona en el descubrimiento
-            de las características propias de su voz y
-            de las posibilidades que puede desarrollar
-            a través de ella.
+            Aporta una metodología estructurada para
+            acompañar la transformación de una persona
+            desde su identidad actual hacia la persona
+            que desea construir.
 
           </p>
 
@@ -1312,14 +1444,16 @@
         <div>
 
           <h3>
-            Comunicar con seguridad
+            Integrar las especialidades
           </h3>
+
 
           <p>
 
-            El trabajo vocal busca que la persona pueda
-            expresarse con mayor claridad, confianza
-            y seguridad frente a los demás.
+            Articula diferentes áreas de conocimiento
+            para que imagen, comunicación, presencia,
+            estrategia y posicionamiento funcionen
+            como un mismo sistema.
 
           </p>
 
@@ -1339,14 +1473,16 @@
         <div>
 
           <h3>
-            Conectar a través de la voz
+            Construir una identidad sostenible
           </h3>
+
 
           <p>
 
-            La voz se convierte en una herramienta para
-            generar conexión, transmitir emociones y
-            hacer que un mensaje tenga mayor presencia.
+            El objetivo no es crear una apariencia
+            temporal, sino desarrollar una identidad
+            que la persona pueda sostener y comunicar
+            con autenticidad.
 
           </p>
 
@@ -1366,15 +1502,15 @@
         <div>
 
           <h3>
-            Convertir palabras en presencia
+            Dirigir hacia el posicionamiento
           </h3>
+
 
           <p>
 
-            Porque comunicar no consiste únicamente
-            en hablar. Consiste en lograr que aquello
-            que dices tenga intención, identidad y
-            llegue realmente a quien te escucha.
+            Convierte el proceso de transformación en
+            una estrategia capaz de proyectar a la
+            persona con claridad, seguridad y propósito.
 
           </p>
 
@@ -1392,22 +1528,50 @@
 
 
 <!-- =====================================================
-     NAVEGACIÓN ENTRE INTEGRANTES
+     CIERRE
 ===================================================== -->
 
-<section class="roxan-next">
+<section class="lucia-closing">
+
+  <div class="closing-wrap">
+
+    <span class="eyebrow">
+      Filosofía
+    </span>
+
+
+    <h2>
+
+      “No trabajo únicamente sobre lo que una persona
+      proyecta. Trabajo sobre la identidad que necesita
+      <em>construir para poder sostenerlo.</em>”
+
+    </h2>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     NAVEGACIÓN
+===================================================== -->
+
+<section class="lucia-next">
 
   <div class="next-wrap">
 
 
-    <a href="Jose_Fernandez.html" class="next-link">
+    <a href="german.html" class="next-link">
 
       <span class="next-label">
         Integrante anterior
       </span>
 
+
       <span class="next-name">
-        ← Jose_fernandez
+        ← Ver perfil
       </span>
 
     </a>
@@ -1415,7 +1579,7 @@
 
 
     <span class="next-center">
-      NOIA GROUP · 01 / 05
+      NOIA GROUP · 01 / 07
     </span>
 
 
@@ -1425,6 +1589,7 @@
       <span class="next-label">
         Siguiente integrante
       </span>
+
 
       <span class="next-name">
         Ver perfil →
